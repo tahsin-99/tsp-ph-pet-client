@@ -1,0 +1,63 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import Home from "./Component/Home.jsx";
+import Homeayout from "./Component/Homeayout.jsx";
+import PetsAndSupplies from "./Component/PetsAndSupplies.jsx";
+import Login from "./Component/Login.jsx";
+import Register from "./Component/Register.jsx";
+import Errorpage from "./Component/Errorpage.jsx";
+import AuthProvider, { AuthContext } from "./Auth/AuthProvider.jsx";
+import AddListing from "./Component/AddListing.jsx";
+import MyListing from "./Component/MyListing.jsx";
+import MyOrders from "./Component/MyOrders.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component:Homeayout,
+    errorElement:<Errorpage></Errorpage>,
+    children:[
+      {
+        index:true,
+        Component:Home
+      },
+      {
+        path:'/petsandsupplies',
+        Component:PetsAndSupplies
+      },
+      {
+        path:'/register',
+        Component:Register
+      },
+      {
+        path:'/login',
+        Component:Login
+      },
+       {
+        path:'/addlisting',
+        Component:AddListing
+      },
+       {
+        path:'/mylisting',
+        Component:MyListing
+      },
+       {
+        path:'/myorders',
+        Component:MyOrders
+      },
+
+    ]
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </StrictMode>
+);
