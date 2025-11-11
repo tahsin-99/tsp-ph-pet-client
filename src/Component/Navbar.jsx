@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import logo from "../assets/petlogo.jpg";
+import logo from "../assets/logo.jpg";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
 const Navbar = () => {

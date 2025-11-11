@@ -14,6 +14,11 @@ import AuthProvider, { AuthContext } from "./Auth/AuthProvider.jsx";
 import AddListing from "./Component/AddListing.jsx";
 import MyListing from "./Component/MyListing.jsx";
 import MyOrders from "./Component/MyOrders.jsx";
+import Pets from "./Component/Pets.jsx";
+import petFoods from "./Component/PetFoods.jsx";
+import PetAccesories from "./Component/PetAccesories.jsx";
+import PetFoods from "./Component/PetFoods.jsx";
+import PetsCare from "./Component/PetsCare.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +32,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/petsandsupplies',
-        Component:PetsAndSupplies
+        Component:PetsAndSupplies,
+        loader:()=>fetch('http://localhost:3000/petsupplies')
       },
       {
         path:'/register',
@@ -48,6 +54,22 @@ const router = createBrowserRouter([
        {
         path:'/myorders',
         Component:MyOrders
+      },
+       {
+        path:'/pets',
+        Component:Pets
+      },
+       {
+        path:'/petsfood',
+        Component:PetFoods
+      },
+       {
+        path:'/petaccessories',
+        Component:PetAccesories
+      },
+       {
+        path:'/petcare',
+        Component:PetsCare
       },
 
     ]
