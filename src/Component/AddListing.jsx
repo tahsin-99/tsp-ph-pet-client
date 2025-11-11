@@ -1,77 +1,105 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../Auth/AuthProvider";
 
 const AddListing = () => {
+    const{user}=use(AuthContext)
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        const formData={
+            name:e.target.name.value,
+            category:e.target.category.value,
+            price:e.target.price.value,
+            location:e.target.location.value,
+            description:e.target.description.value,
+            image:e.target.photo.value,
+            date:e.target.date.value,
+            email:e.target.email.value,
+           
+            
+            
+        }
+       fetch('http://localhost:3000/petsupplies',
+        {
+            method:'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(formData)
+        }
+       )
+       .then(res=>res.json())
+       .then(data=>{
+        console.log(data);
+        alert('Added')
+       })
+       .catch(error=>{
+        error
+       })
+    }
   return (
     <>
       <p className="text-4xl font-bold text-center mt-20 mb-10">
         Add Your Pet & Supplies
       </p>
       <div className="border p-5 w-[800px] mx-auto  rounded-md">
-        <form className="">
+        <form onSubmit={handleSubmit} className="">
           <fieldset className="fieldset ">
-            <label className="label font-semibold text-black">Your Name</label>
+            <label className="label font-semibold text-black">Name</label>
             <input
               type="text"
               name="name"
-              className="input  w-150"
-              placeholder="Enter Your Name"
+              className="input  w-full"
+              placeholder="Enter Name"
               required
             />
             <label for='Dropdown' className="font-semibold">Choose a Category:</label>
-            <select id='Dropdown' className="border border-gray-200 w-150 h-10 rounded-sm" name='category'>
-                <option value=''>Pets</option>
-                <option value=''>Pet Food</option>
-                <option value=''>Accessories</option>
-                <option value=''>Pet Care Products</option>
+            <select id='Dropdown' className="border border-gray-200 w-full h-10 rounded-sm" name='category'>
+                <option value='Pets'>Pets</option>
+                <option value='Pet Food'>Pet Food</option>
+                <option value='Accessories'>Accessories</option>
+                <option value='Pet Care Products'>Pet Care Products</option>
             </select>
             <label className="label font-semibold text-black">Price</label>
             <input
               type="text"
-              name="name"
-              className="input  w-150"
+              name="price"
+              className="input  w-full"
               placeholder="Enter Your Price"
               required
             />
             <label className="label font-semibold text-black">Location</label>
             <input
               type="text"
-              name="name"
-              className="input  w-150"
+              name="location"
+              className="input  w-full"
               placeholder="Enter Your Location"
               required
             />
             <label className="label font-semibold text-black">Description</label>
-            <textarea className="textarea  w-150" placeholder="Write description"></textarea>
+            <textarea name='description' className="textarea  w-full" placeholder="Write description"></textarea>
 
             <label className="label font-semibold text-black">Photo URL</label>
             <input
               type="text"
               name="photo"
-              className="input w-150"
+              className="input w-full"
               placeholder="Enter URL"
               required
             />
-            <label className="label font-semibold text-black">Date</label>
-             <input type="datetime-local" className="input w-150" />
+            <label   className="label font-semibold text-black">Date</label>
+             <input name='date' type="datetime-local" className="input w-full" />
 
             <label className="label font-semibold text-black">Email</label>
             <input
               type="email"
               name="email"
-              className="input w-150"
+              className="input w-full"
               placeholder="Enter Your Email"
-              
-              required
+              defaultValue={user.email ||""}
+              readOnly
             />
 
-            <label className="label font-semibold text-black">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="input w-150"
-              placeholder="Enter Your Password"
-              required
-            />
+           
 
             <button type="submit" className="btn btn-primary mt-10">
               Submit

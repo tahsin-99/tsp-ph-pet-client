@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const PetsAndSupplies = () => {
     const data=useLoaderData()
@@ -10,7 +10,7 @@ const PetsAndSupplies = () => {
         <div className='grid grid-cols-3 mt-10 gap-20 p-5 '>
 
         {
-            data.map(d=><div key={d._id} className="card border-gray-300 border-1  w-96 shadow-sm">
+            data.map((d)=><div key={d._id}  className="card border-gray-300 border-1  w-96 shadow-sm">
   <figure>
     <img
       src={d.image}
@@ -21,13 +21,14 @@ const PetsAndSupplies = () => {
      {d.name}
       <div className="badge badge-secondary">{d.category}</div>
     </h2>
-    <p>{d.description}</p>
+    <p>{d.title}</p>
     <div className="card-actions ">
       <div className="badge font-semibold bg-amber-500 badge-outline">৳{d.price}</div>
       <div className="badge bg-green-500 badge-outline">{d.location}</div>
+      <div className="badge bg-blue-300 badge-outline">{d.date}</div>
 
     </div>
-    <button className='btn btn-primary'>See Details</button>
+    <Link to={`/card-ditails/${d._id}`} className='btn btn-primary'>See Details</Link>
   </div>
 </div>)
         }
