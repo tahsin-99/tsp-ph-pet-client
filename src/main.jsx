@@ -70,7 +70,8 @@ const router = createBrowserRouter([
       },
        {
         path:'/petsfood',
-        Component:PetFoods
+        Component:PetFoods,
+        loader:()=>fetch('http://localhost:3000/petsfood')
       },
        {
         path:'/petaccessories',
