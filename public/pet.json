@@ -1,0 +1,245 @@
+[
+  {
+    "name": "Golden Retriever Puppy",
+    "category": "Pets",
+    "price": 15000,
+    "location": "Dhaka",
+    "description": "Friendly 2-month-old puppy available for adoption.",
+    "image": "https://i.ibb.co.com/RTgvc88g/golden-retriver-puppy.jpg",
+    "email": "owner1@gmail.com",
+    "date": "2025-10-27"
+  },
+  {
+    "name": "Persian Cat",
+    "category": "Pets",
+    "price": 12000,
+    "location": "Chattogram",
+    "description": "Beautiful 3-month-old Persian kitten looking for a new home.",
+    "image": "https://i.ibb.co.com/Q37Pf8sN/persian-cat.jpg",
+    "email": "owner2@gmail.com",
+    "date": "2025-10-28"
+  },
+  {
+    "name": "German Shepherd",
+    "category": "Pets",
+    "price": 18000,
+    "location": "Sylhet",
+    "description": "Energetic 4-month-old German Shepherd puppy ready for adoption.",
+    "image": "https://i.ibb.co.com/d4bf5Y6q/german.webp",
+    "email": "owner3@gmail.com",
+    "date": "2025-10-29"
+  },
+  {
+    "name": "Parrot",
+    "category": "Pets",
+    "price": 5000,
+    "location": "Rajshahi",
+    "description": "Colorful parrot, 1-year-old, friendly and talkative.",
+    "image": "https://i.ibb.co.com/5grZ1j2Y/parrot.jpg",
+    "email": "owner4@gmail.com",
+    "date": "2025-10-30"
+  },
+  {
+    "name": "Bulldog",
+    "category": "Pets",
+    "price": 16000,
+    "location": "Khulna",
+    "description": "Calm and loving Bulldog puppy, 3 months old.",
+    "image": "https://i.ibb.co.com/HLpzK07G/bulldog.jpg",
+    "email": "owner5@gmail.com",
+    "date": "2025-10-31"
+  },
+  {
+    "name": "Siamese Cat",
+    "category": "Pets",
+    "price": 11000,
+    "location": "Barishal",
+    "description": "Playful Siamese kitten, 2 months old, looking for a loving home.",
+    "image": "https://i.ibb.co.com/MkB54cvm/siamesecar.jpg",
+    "email": "owner6@gmail.com",
+    "date": "2025-11-01"
+  },
+
+  {
+    "name": "Dog Kibble",
+    "category": "Pet Food",
+    "price": 1500,
+    "location": "Dhaka",
+    "description": "High-quality dog kibble to keep your pets healthy.",
+    "image": "https://i.ibb.co.com/VcghRx9X/dog-kibble.jpg",
+    "email": "owner7@gmail.com",
+    "date": "2025-11-01"
+  },
+  {
+    "name": "Cat Dry Food",
+    "category": "Pet Food",
+    "price": 1200,
+    "location": "Chattogram",
+    "description": "Nutritious dry food for cats of all ages.",
+    "image": "https://i.ibb.co.com/KjMXrsNj/cat-dryfood.webp",
+    "email": "owner8@gmail.com",
+    "date": "2025-11-02"
+  },
+  {
+    "name": "Bird Seeds",
+    "category": "Pet Food",
+    "price": 800,
+    "location": "Sylhet",
+    "description": "Premium bird seeds for healthy, happy birds.",
+    "image": "https://i.ibb.co.com/rf3Dg4KG/bird-seed.jpg",
+    "email": "owner9@gmail.com",
+    "date": "2025-11-03"
+  },
+  {
+    "name": "Fish Flakes",
+    "category": "Pet Food",
+    "price": 500,
+    "location": "Rajshahi",
+    "description": "Tasty and nutritious flakes for aquarium fish.",
+    "image": "https://i.ibb.co.com/NGRpHPp/fish-flakes.jpg",
+    "email": "owner10@gmail.com",
+    "date": "2025-11-04"
+  },
+  {
+    "name": "Puppy Milk",
+    "category": "Pet Food",
+    "price": 1000,
+    "location": "Khulna",
+    "description": "Milk specially formulated for puppies.",
+    "image": "https://i.ibb.co.com/46yYrPn/puppy-milk.jpg",
+    "email": "owner11@gmail.com",
+    "date": "2025-11-05"
+  },
+  {
+    "name": "Wet Cat Food",
+    "category": "Pet Food",
+    "price": 1200,
+    "location": "Barishal",
+    "description": "Delicious wet food for cats with essential nutrients.",
+    "image": "https://i.ibb.co.com/b54mTN2j/we-cat-food.jpg",
+    "email": "owner12@gmail.com",
+    "date": "2025-11-06"
+  },
+
+  {
+    "name": "Dog Collar",
+    "category": "Accessories",
+    "price": 500,
+    "location": "Dhaka",
+    "description": "Comfortable and durable dog collar.",
+    "image": "https://i.ibb.co.com/5xxh42zJ/dog-collar.webp",
+    "email": "owner13@gmail.com",
+    "date": "2025-11-01"
+  },
+  {
+    "name": "Cat Toy",
+    "category": "Accessories",
+    "price": 300,
+    "location": "Chattogram",
+    "description": "Fun toy to keep your cat entertained.",
+    "image": "https://i.ibb.co.com/gMQYpR87/cat-toy.jpg",
+    "email": "owner14@gmail.com",
+    "date": "2025-11-02"
+  },
+  {
+    "name": "Pet Bed",
+    "category": "Accessories",
+    "price": 2000,
+    "location": "Sylhet",
+    "description": "Cozy bed for your pet to sleep comfortably.",
+    "image": "https://i.ibb.co.com/7PHKBHD/pet-bed.webp",
+    "email": "owner15@gmail.com",
+    "date": "2025-11-03"
+  },
+  {
+    "name": "Leash",
+    "category": "Accessories",
+    "price": 700,
+    "location": "Rajshahi",
+    "description": "Strong and reliable leash for walks.",
+    "image": "https://i.ibb.co.com/hxfGJk05/leash.jpg",
+    "email": "owner16@gmail.com",
+    "date": "2025-11-04"
+  },
+  {
+    "name": "Pet Carrier",
+    "category": "Accessories",
+    "price": 2500,
+    "location": "Khulna",
+    "description": "Safe and comfortable carrier for pets.",
+    "image": "https://i.ibb.co.com/kV32qyJt/pet-carrier.webp",
+    "email": "owner17@gmail.com",
+    "date": "2025-11-05"
+  },
+  {
+    "name": "Scratching Post",
+    "category": "Accessories",
+    "price": 1500,
+    "location": "Barishal",
+    "description": "Essential scratching post for cats.",
+    "image": "https://i.ibb.co.com/7d8H1tQN/scratching-post.webp",
+    "email": "owner18@gmail.com",
+    "date": "2025-11-06"
+  },
+
+  {
+    "name": "Shampoo",
+    "category": "Pet Care Products",
+    "price": 800,
+    "location": "Dhaka",
+    "description": "Gentle shampoo for pets’ fur.",
+    "image": "https://i.ibb.co.com/QFC966h3/shampoo.jpg",
+    "email": "owner19@gmail.com",
+    "date": "2025-11-01"
+  },
+  {
+    "name": "Conditioner",
+    "category": "Pet Care Products",
+    "price": 700,
+    "location": "Chattogram",
+    "description": "Keeps pet fur soft and shiny.",
+    "image": "https://i.ibb.co.com/fYYPxPZw/conditionar.jpg",
+    "email": "owner20@gmail.com",
+    "date": "2025-11-02"
+  },
+  {
+    "name": "Brush",
+    "category": "Pet Care Products",
+    "price": 500,
+    "location": "Sylhet",
+    "description": "Brush to maintain healthy coat.",
+    "image": "https://i.ibb.co.com/nMPVtX6b/brush.webp",
+    "email": "owner21@gmail.com",
+    "date": "2025-11-03"
+  },
+  {
+    "name": "Nail Clipper",
+    "category": "Pet Care Products",
+    "price": 600,
+    "location": "Rajshahi",
+    "description": "Trim nails safely and easily.",
+    "image": "https://i.ibb.co.com/0jr9tP9x/clipper.jpg",
+    "email": "owner22@gmail.com",
+    "date": "2025-11-04"
+  },
+  {
+    "name": "Ear Cleaner",
+    "category": "Pet Care Products",
+    "price": 400,
+    "location": "Khulna",
+    "description": "Keep your pet’s ears clean and healthy.",
+    "image": "https://i.ibb.co.com/gLLtYzwL/cleaner-ear.jpg",
+    "email": "owner23@gmail.com",
+    "date": "2025-11-05"
+  },
+  {
+    "name": "Flea Spray",
+    "category": "Pet Care Products",
+    "price": 1000,
+    "location": "Barishal",
+    "description": "Effective flea protection for pets.",
+    "image": "https://i.ibb.co.com/7xG503hQ/spray.webp",
+    "email": "owner24@gmail.com",
+    "date": "2025-11-06"
+  }
+]
