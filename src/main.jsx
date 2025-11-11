@@ -65,7 +65,8 @@ const router = createBrowserRouter([
       },
        {
         path:'/pets',
-        Component:Pets
+        Component:Pets,
+        loader:()=>fetch('http://localhost:3000/pets')
       },
        {
         path:'/petsfood',
