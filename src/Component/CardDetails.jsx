@@ -1,9 +1,33 @@
-import React from "react";
-import { useLoaderData } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import {  useParams } from "react-router";
+import { AuthContext } from "../Auth/AuthProvider";
 
 const CardDetails = () => {
-  const data = useLoaderData();
-  console.log(data);
+  const {id}=useParams()
+  const [data,setData]=useState({})
+  const [loading,setLoading]=useState(true)
+  const {user}=use(AuthContext)
+
+  
+  useEffect(()=>{
+
+    fetch(`http://localhost:3000/petsupplies/${id}`,{
+      headers:{
+        authorization:`Bearer ${user.accessToken}`
+      }
+    })
+    .then(res=>res.json())
+    .then(d=>{
+      setData(d)
+      setLoading(false)
+    })
+        
+  },[user,id])
+
+  if(loading){
+    return <div>Loading....</div>
+  }
+  
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">

@@ -41,7 +41,6 @@ const router = createBrowserRouter([
       {
          path:'/card-ditails/:id',
         element:<PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:3000/petsupplies/${params.id}`)
         
       },
       {
