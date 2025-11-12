@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="text-4xl font-bold text-center mt-10">Recent Items</div>
+      <div className="text-4xl font-bold text-center mt-70">Recent Items</div>
       <div className="flex justify-center">
         <div className="grid grid-cols-3 mt-10 gap-20 p-5 ">
           {data.map((d) => (

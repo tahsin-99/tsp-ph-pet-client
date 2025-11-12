@@ -12,7 +12,7 @@ const PetsAndSupplies = () => {
         {
             data.map((d)=><div key={d._id}  className="card border-gray-300 border-1  w-96 shadow-sm">
   <figure>
-    <img
+    <img className='p-5'
       src={d.image}
       alt="" />
   </figure>

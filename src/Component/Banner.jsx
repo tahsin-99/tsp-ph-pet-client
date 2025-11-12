@@ -39,7 +39,7 @@ const Banner = () => {
 
   return (
     <>
-      <div>
+      <div className="mt-50">
         <Slider {...settings} className="mt-6 w-full">
           {data.map((d) => (
             <div key={d.id}>
@@ -54,7 +54,7 @@ const Banner = () => {
           ))}
         </Slider>
       </div>
-      <div className="mt-20 border p-6 grid grid-cols-1 sm:grid-cols-4 gap-5">
+      <div className="mt-80  p-6 grid grid-cols-1 sm:grid-cols-4 gap-5">
       
       <Link to='/pets' className="card bg-base-200 w-85 shadow-sm">
   <figure className="px-8 pt-10">

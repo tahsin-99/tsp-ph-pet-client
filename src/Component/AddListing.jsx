@@ -1,8 +1,10 @@
 import React, { use } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
+import { useNavigate } from "react-router";
 
 const AddListing = () => {
     const{user}=use(AuthContext)
+    const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault()
         const formData={
@@ -10,6 +12,7 @@ const AddListing = () => {
             category:e.target.category.value,
             price:e.target.price.value,
             location:e.target.location.value,
+            title:e.target.title.value,
             description:e.target.description.value,
             image:e.target.photo.value,
             date:e.target.date.value,
@@ -31,6 +34,7 @@ const AddListing = () => {
        .then(data=>{
         console.log(data);
         alert('Added')
+        navigate('/')
        })
        .catch(error=>{
         error
@@ -73,6 +77,14 @@ const AddListing = () => {
               name="location"
               className="input  w-full"
               placeholder="Enter Your Location"
+              required
+            />
+             <label className="label font-semibold text-black">Title</label>
+            <input
+              type="text"
+              name="title"
+              className="input  w-full"
+              placeholder="Enter Your Title"
               required
             />
             <label className="label font-semibold text-black">Description</label>
