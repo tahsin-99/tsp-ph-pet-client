@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import logo from "../assets/logo.jpg";
+import userlogo from "../assets/user.png";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
 const Navbar = () => {
@@ -9,10 +10,10 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert('logout Successfully')
-       setTimeout(()=>{
-         navigate("/login");
-       },1500)
+        alert("logout Successfully");
+        setTimeout(() => {
+          navigate("/login");
+        }, 1500);
       })
       .catch((error) => {
         console.log(error);
@@ -25,21 +26,16 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/petsandsupplies">Pet & Supplies</NavLink>
 
-        {
-            user &&
-            <>
-                      
-            <NavLink to='/addlisting'>Add Listing</NavLink>
-            <NavLink to='/mylisting'>My Listing</NavLink>
-            <NavLink to='/myorders'>My Orders</NavLink>
+        {user && (
+          <>
+            <NavLink to="/addlisting">Add Listing</NavLink>
+            <NavLink to="/mylisting">My Listing</NavLink>
+            <NavLink to="/myorders">My Orders</NavLink>
 
-            <div>
-                <img src={user?.photoURL && user.photoURL.startWith('http')?user.photoURL:'k'} alt="" />
-            </div>
             
             
-        </>
-        }
+          </>
+        )}
       </div>
     </>
   );
@@ -81,43 +77,49 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <Link to="/my-profile">
-          <img className="w-[45px] rounded-full mr-10" alt="" />
+          <img
+            src={
+              user?.photoURL &&
+              typeof user.photoURL === "string" &&
+              user.photoURL.startsWith("http")
+                ? user.photoURL
+                : userlogo
+            }
+            alt="User Avatar"
+            className="w-[45px] rounded-full"
+          />
         </Link>
 
         <div className="flex flex-col sm:flex-row gap-4 ">
-            <div>
-          <Link
-            className="btn btn-outline btn-primary w-[140px]"
-            to="/register"
-          >
-            Register
-          </Link>
+          <div>
+            <Link
+              className="btn btn-outline btn-primary w-[140px]"
+              to="/register"
+            >
+              Register
+            </Link>
           </div>
           <div>
-
-          
-          {user ? (
-            <button onClick={handleLogOut}
-              className="btn btn-primary hover:bg-red-400   w-[140px]"
-              to="/login"
-            >
-              LogOut
-            </button>
-          ) : (
-            <Link
-              className="btn btn-primary hover:bg-emerald-600  w-[140px]"
-              to="/login"
-            >
-              Login
-            </Link>
-           
-          )}
-           </div>
-        </div>
-        
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className="btn btn-primary hover:bg-red-400   w-[140px]"
+                to="/login"
+              >
+                LogOut
+              </button>
+            ) : (
+              <Link
+                className="btn btn-primary hover:bg-emerald-600  w-[140px]"
+                to="/login"
+              >
+                Login
+              </Link>
+            )}
+          </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 

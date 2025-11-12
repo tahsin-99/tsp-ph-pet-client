@@ -20,6 +20,7 @@ import PetAccesories from "./Component/PetAccesories.jsx";
 import PetFoods from "./Component/PetFoods.jsx";
 import PetsCare from "./Component/PetsCare.jsx";
 import CardDetails from "./Component/CardDetails.jsx";
+import PrivateRoute from "./Component/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
          path:'/card-ditails/:id',
-        Component:CardDetails,
+        element:<PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:3000/petsupplies/${params.id}`)
         
       },
@@ -53,15 +54,15 @@ const router = createBrowserRouter([
       },
        {
         path:'/addlisting',
-        Component:AddListing
+         element:<PrivateRoute><AddListing></AddListing></PrivateRoute>,
       },
        {
         path:'/mylisting',
-        Component:MyListing
+         element:<PrivateRoute><MyListing></MyListing></PrivateRoute>,
       },
        {
         path:'/myorders',
-        Component:MyOrders
+         element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>,
       },
        {
         path:'/pets',
