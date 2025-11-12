@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Auth/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const {googleLogin,Login}=use(AuthContext)
@@ -13,7 +14,7 @@ const Login = () => {
 
         Login(email,password)
         .then(()=>{
-            alert('finally loged in')
+            toast.success('Logged in Successfully')
             navigate('/')
         })
         .catch(error=>{
@@ -27,6 +28,7 @@ const Login = () => {
         googleLogin()
         .then((result)=>{
             console.log(result);
+             toast.success('Logged in Successfully')
             navigate('/')
 
         })
@@ -36,6 +38,8 @@ const Login = () => {
     }
 
     return (
+      <>
+      <title>PawMart | Login</title>
          <div className="flex justify-center items-center min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-10">
         <h1 className="font-semibold text-2xl text-center">
@@ -109,6 +113,7 @@ const Login = () => {
       </div>
         
     </div>
+    </>
     );
 };
 

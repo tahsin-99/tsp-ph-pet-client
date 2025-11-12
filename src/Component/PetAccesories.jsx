@@ -4,6 +4,8 @@ import { Link, useLoaderData } from 'react-router';
 const PetAccesories = () => {
     const data=useLoaderData()
     return (
+      <>
+      <title>PawMart | Accessories</title>
         <div className="flex justify-center">
         <div className="grid grid-cols-3 mt-10 gap-20 p-5 ">
           {data.map((d) => (
@@ -39,6 +41,7 @@ const PetAccesories = () => {
           ))}
         </div>
       </div>
+      </>
     );
 };
 

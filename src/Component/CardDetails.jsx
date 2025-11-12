@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import {  useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
 import Loading from "./Loading";
+import Swal from "sweetalert2";
 
 const CardDetails = () => {
   const navigate=useNavigate()
@@ -22,7 +23,11 @@ const CardDetails = () => {
     .then(res=>res.json())
     .then(d=>{
       console.log(d);
-      alert('Successfully orderd')
+     Swal.fire({
+  title: "Order has Confirmed",
+  icon: "success",
+  
+});
       navigate('/myorders')
     })
     .catch(err=>{
@@ -53,6 +58,7 @@ const CardDetails = () => {
   
   return (
     <div>
+      <title>{data.name}</title>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
           <img src={data.image} className="w-100 rounded-lg shadow-2xl" />

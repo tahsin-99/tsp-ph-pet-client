@@ -3,6 +3,7 @@ import logo from "../assets/logo.jpg";
 import userlogo from "../assets/user.png";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
+import { toast } from "react-toastify";
 const Navbar = () => {
   const { logOut, user } = use(AuthContext);
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("logout Successfully");
+        toast.info("Logout Successfully");
         setTimeout(() => {
           navigate("/login");
         }, 1500);

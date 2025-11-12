@@ -22,11 +22,13 @@ import PetsCare from "./Component/PetsCare.jsx";
 import CardDetails from "./Component/CardDetails.jsx";
 import PrivateRoute from "./Component/PrivateRoute.jsx";
 import { ToastContainer } from "react-toastify";
+import Loading from "./Component/Loading.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component:Homeayout,
+    hydrateFallbackElement:<Loading></Loading>,
     errorElement:<Errorpage></Errorpage>,
     children:[
       {

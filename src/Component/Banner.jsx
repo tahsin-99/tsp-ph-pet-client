@@ -56,7 +56,7 @@ const Banner = () => {
       </div>
       <div className="mt-80  p-6 grid grid-cols-1 sm:grid-cols-4 gap-5">
       
-      <Link to='/pets' className="card bg-base-200 w-85 shadow-sm">
+      <Link to='/pets' className="card bg-base-200 w-85 shadow-sm mx-auto">
   <figure className="px-8 pt-10">
     <img
       src="https://images.pexels.com/photos/1452717/pexels-photo-1452717.jpeg?_gl=1*1tg4rmb*_ga*Njg3NjI2NTY3LjE3NTE4OTUzNTA.*_ga_8JE65Q40S6*czE3NjI4NjA1MDIkbzMkZzEkdDE3NjI4NjA1NjMkajU5JGwwJGgw"
@@ -71,7 +71,7 @@ const Banner = () => {
     </div>
   </div>
 </Link>
-      <Link to='/petsfood' className="card bg-base-200 w-85 shadow-sm">
+      <Link to='/petsfood' className="card bg-base-200 w-85 shadow-sm mx-auto">
   <figure className="px-8 pt-10">
     <img
       src="https://images.pexels.com/photos/8434744/pexels-photo-8434744.jpeg?_gl=1*1f6d6e8*_ga*Njg3NjI2NTY3LjE3NTE4OTUzNTA.*_ga_8JE65Q40S6*czE3NjI4NjA1MDIkbzMkZzEkdDE3NjI4NjA2NTEkajMxJGwwJGgw"
@@ -86,7 +86,7 @@ const Banner = () => {
     </div>
   </div>
 </Link>
-      <Link to='/petaccessories' className="card bg-base-200 w-85 shadow-sm">
+      <Link to='/petaccessories' className="card bg-base-200 w-85 shadow-sm mx-auto">
   <figure className="px-8 pt-10">
     <img
       src="https://images.pexels.com/photos/8625115/pexels-photo-8625115.jpeg?_gl=1*bdzjc2*_ga*Njg3NjI2NTY3LjE3NTE4OTUzNTA.*_ga_8JE65Q40S6*czE3NjI4NjA1MDIkbzMkZzEkdDE3NjI4NjA4MzQkajgkbDAkaDA."
@@ -101,7 +101,8 @@ const Banner = () => {
     </div>
   </div>
 </Link>
-      <Link to='/petcare' className="card bg-base-200 w-85 shadow-sm">
+      <Link to='/petcare' className="card bg-base-200 w-85 shadow-sm
+      mx-auto">
   <figure className="px-8 pt-10">
     <img
       src="https://images.pexels.com/photos/17605540/pexels-photo-17605540.jpeg?_gl=1*1gp696w*_ga*Njg3NjI2NTY3LjE3NTE4OTUzNTA.*_ga_8JE65Q40S6*czE3NjI4NjA1MDIkbzMkZzEkdDE3NjI4NjA5MjMkajIyJGwwJGgw"

@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router';
 import { AuthContext } from '../Auth/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
@@ -28,6 +29,7 @@ const Register = () => {
         
         creatUser(email,password)
         .then(result=>{
+          toast.success('Registration Successfully')
         
         const user=result.user
        
@@ -50,6 +52,8 @@ const Register = () => {
     }
 
     return (
+      <>
+      <title>PawMart | Register</title>
         <div className="flex justify-center items-center min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-10">
         <h1 className="font-semibold text-2xl text-center">Register Now</h1>
@@ -108,6 +112,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+    </>
     );
 };
 

@@ -44,6 +44,7 @@ const AddListing = () => {
     }
   return (
     <>
+    <title>PawMart | AddList</title>
       <p className="text-4xl font-bold text-center mt-20 mb-10">
         Add Your Pet & Supplies
       </p>

@@ -14,7 +14,7 @@ const Home = () => {
           {data.map((d) => (
             <div
               key={d._id}
-              className="card border-gray-300 border-1  w-96 shadow-sm"
+              className="card border-gray-300 border-1  w-96 shadow-sm  transform transition-transform duration-150  hover:-translate-y-4 active:scale-95 cursor-pointer p-5"
             >
               <figure>
                 <img src={d.image} alt="" />

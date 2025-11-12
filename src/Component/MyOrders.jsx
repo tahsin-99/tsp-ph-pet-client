@@ -60,7 +60,9 @@ const MyOrders = () => {
   if (loading) return <Loading></Loading>;
 
   return (
+   <><title>PawMart | MyOrder</title>
     <div className="p-5">
+        
       <h1 className="text-3xl font-bold mb-5">My Orders</h1>
       
       <table className="table-auto w-full border border-gray-300">
@@ -97,6 +99,7 @@ const MyOrders = () => {
         Download PDF
       </button>
     </div>
+    </>
   );
 };
 
