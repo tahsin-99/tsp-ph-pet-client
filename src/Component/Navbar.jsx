@@ -6,6 +6,7 @@ import { AuthContext } from "../Auth/AuthProvider";
 const Navbar = () => {
   const { logOut, user } = use(AuthContext);
   const navigate = useNavigate();
+  
 
   const handleLogOut = () => {
     logOut()
@@ -77,16 +78,16 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <Link to="/my-profile">
-          <img
+          <img className="w-[45px] rounded-full mr-5"
             src={
               user?.photoURL &&
-              typeof user.photoURL === "string" &&
+              typeof user.photoURL &&
               user.photoURL.startsWith("http")
                 ? user.photoURL
                 : userlogo
             }
             alt="User Avatar"
-            className="w-[45px] rounded-full"
+            
           />
         </Link>
 

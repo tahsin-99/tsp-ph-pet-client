@@ -18,6 +18,8 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth,email,password)
     }
 
+    
+
     const googleProvider=new GoogleAuthProvider()
 
     const googleLogin=()=>{
