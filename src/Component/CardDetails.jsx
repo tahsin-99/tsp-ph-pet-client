@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import {  useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
+import Loading from "./Loading";
 
 const CardDetails = () => {
   const navigate=useNavigate()
@@ -47,7 +48,7 @@ const CardDetails = () => {
   },[user,id])
 
   if(loading){
-    return <div>Loading....</div>
+    return <Loading></Loading>
   }
   
   return (

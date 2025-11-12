@@ -1,64 +1,102 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
-import { Link } from "react-router";
+import { useContext } from "react";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import Loading from "./Loading";
 
 const MyOrders = () => {
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  console.log(user);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:3000/my-orders?email=${user.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
+    fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
       },
-      [user]
-    )
+    })
       .then((res) => res.json())
       .then((d) => {
         setData(d);
-
         setLoading(false);
       });
-  });
-  if (loading) {
-    return <p>Loading......</p>;
-  }
-  return (
-    <>
-    <p className="text-5xl font-bold mt-5">Order Details:</p>
-    <div className="mt-10 px-10 space-y-5">
-       {
-        data.map(d=> <div className="w-full border border-gray-300 h-20 mx-auto rounded-xl flex justify-between items-center p-10 ">
-                <div className="flex gap-10">
-                   <div>
-                     <img className="w-20 rounded-full p-" src={d.image} alt="" />
-                   </div>
-                   <div>
-                    <p className="font-semibold text-[20px]">{d.name}</p>
-                    <p className="badge bg-green-300 badge-outline">{d.location}</p>
-                   </div>
-                </div>
-                <div>
-                   <div className=" font-semibold">{d.email}</div>
-                </div>
-                <div>
-                    <div className="badge bg-orange-300 badge-outline">{d.category}</div>
-                </div>
-                <div>
-                    <div className="badge font-bold bg-blue-300 badge-outline">{d.price}</div>
-                </div>
-                <div>
-                    <button className="btn btn-outline btn-error rounded-4xl w-30 text-[18px]">Cancle</button>
-                </div>
-        </div>)
-       }
-    </div>
-    </>
+  }, [user]);
+
+  const handleDownload = () => {
+    const doc = new jsPDF();
+
+    
+    const columns = [
+      "Name",
+      "Email",
+      "Category",
+      "Price",
+      "Location",
+      "Date",
+    ];
+
    
+    const rows = data.map((item) => [
+      item.name,
+      item.email,
+      item.category,
+      item.price,
+      item.location,
+      item.date || "",
+    ]);
+
+    
+    autoTable(doc,{
+      head: [columns],
+      body: rows,
+    });
+
+    
+    doc.save("my-orders.pdf");
+  };
+
+  if (loading) return <Loading></Loading>;
+
+  return (
+    <div className="p-5">
+      <h1 className="text-3xl font-bold mb-5">My Orders</h1>
+      
+      <table className="table-auto w-full border border-gray-300">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="border px-4 py-2">Name</th>
+            <th className="border px-4 py-2">Buyer Name</th>
+            <th className="border px-4 py-2">Category</th>
+            <th className="border px-4 py-2">Email Address</th>
+            <th className="border px-4 py-2">Price</th>
+            <th className="border px-4 py-2">Location</th>
+            <th className="border px-4 py-2">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((d) => (
+            <tr key={d._id}>
+              <td className="border px-4 py-2 text-blue-700 font-semibold">{d.name}</td>
+              <td className="border px-4 py-2">{user.displayName}</td>
+              <td className="border px-4 py-2">{d.category}</td>
+              <td className="border px-4 py-2 font-semibold">{user.email}</td>
+              <td className="border px-4 py-2 text-red-600 font-semibold">{d.price}</td>
+              <td className="border px-4 py-2">{d.location}</td>
+              <td className="border px-4 py-2">{d.date || ""}</td>
+            </tr>
+          ))}
+        </tbody>
+        
+      </table>
+      <button
+        onClick={handleDownload}
+        className="mb-5 btn btn-secondary mt-10"
+      >
+        Download PDF
+      </button>
+    </div>
   );
 };
 

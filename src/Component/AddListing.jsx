@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const AddListing = () => {
     const{user}=use(AuthContext)
@@ -9,6 +10,7 @@ const AddListing = () => {
         e.preventDefault()
         const formData={
             name:e.target.name.value,
+            sellerName:e.target.sellerNname.value,
             category:e.target.category.value,
             price:e.target.price.value,
             location:e.target.location.value,
@@ -33,7 +35,7 @@ const AddListing = () => {
        .then(res=>res.json())
        .then(data=>{
         console.log(data);
-        alert('Added')
+        toast.success('Added Successfully')
         navigate('/')
        })
        .catch(error=>{
@@ -52,6 +54,14 @@ const AddListing = () => {
             <input
               type="text"
               name="name"
+              className="input  w-full"
+              placeholder="Enter Name"
+              required
+            />
+            <label className="label font-semibold text-black">Seller Name</label>
+            <input
+              type="text"
+              name="sellerNname"
               className="input  w-full"
               placeholder="Enter Name"
               required

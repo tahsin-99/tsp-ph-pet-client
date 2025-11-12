@@ -21,6 +21,7 @@ import PetFoods from "./Component/PetFoods.jsx";
 import PetsCare from "./Component/PetsCare.jsx";
 import CardDetails from "./Component/CardDetails.jsx";
 import PrivateRoute from "./Component/PrivateRoute.jsx";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer></ToastContainer>
     </AuthProvider>
   </StrictMode>
 );

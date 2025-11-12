@@ -77,7 +77,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/my-profile">
+       {
+        user&&(
+          <div>
+
+             <Link to="/my-profile">
           <img className="w-[45px] rounded-full mr-5"
             src={
               user?.photoURL &&
@@ -90,6 +94,9 @@ const Navbar = () => {
             
           />
         </Link>
+          </div>
+        )
+       }
 
         <div className="flex flex-col sm:flex-row gap-4 ">
           <div>

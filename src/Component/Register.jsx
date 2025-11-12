@@ -1,10 +1,11 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router';
 import { AuthContext } from '../Auth/AuthProvider';
 
 const Register = () => {
 
   const navigate=useNavigate()
+  const [error,setError]=useState('')
 
     const {creatUser,updateUser,setUser}= use(AuthContext)
     const handleRgister=(e)=>{
@@ -13,13 +14,24 @@ const Register = () => {
         const image=e.target.photo.value
         const email=e.target.email.value
         const password=e.target.password.value
+
+       
+    if (password.length < 6) {
+      return setError("Password must be at least 6 characters long");
+    } else if (!/[A-Z]/.test(password)) {
+      return setError("Password must have at least one uppercase letter.");
+    } else if (!/[a-z]/.test(password)) {
+      return setError("Password must have at least one lowercase letter.");
+    } else {
+      setError("");
+    }
         
         creatUser(email,password)
         .then(result=>{
-        //    const user=result.user
+        
         const user=result.user
        
-         updateUser({ displayName: name, photoURL: image })
+         updateUser(user,{ displayName: name, photoURL: image })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: image });
             navigate("/");
@@ -80,7 +92,7 @@ const Register = () => {
                 required
               />
 
-             
+             {error&& <p className='text-sm text-red-500 mt-2'>{error}</p>}
 
               <button type="submit" className="btn btn-neutral mt-4">
                 Register
