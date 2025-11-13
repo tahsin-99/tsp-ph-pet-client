@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -6,6 +6,24 @@ import { toast } from "react-toastify";
 const AddListing = () => {
     const{user}=use(AuthContext)
     const navigate=useNavigate()
+
+
+    const [category,setCategory]=useState('')
+    const [price,setPrice]=useState('')
+
+
+    const handleCategory=(e)=>{
+      const selected=e.target.value
+      setCategory(selected)
+      if(selected==='Pets'){
+        setPrice(0)
+      }
+      else{
+        setPrice('')
+      }
+    }
+    
+
     const handleSubmit=(e)=>{
         e.preventDefault()
         const formData={
@@ -68,7 +86,8 @@ const AddListing = () => {
               required
             />
             <label for='Dropdown' className="font-semibold">Choose a Category:</label>
-            <select id='Dropdown' className="border border-gray-200 w-full h-10 rounded-sm" name='category'>
+            <select id='Dropdown' className="border border-gray-200 w-full h-10 rounded-sm" name='category' onChange={handleCategory}>
+              <option value=''>Select Category</option>
                 <option value='Pets'>Pets</option>
                 <option value='Pet Food'>Pet Food</option>
                 <option value='Accessories'>Accessories</option>
@@ -80,6 +99,9 @@ const AddListing = () => {
               name="price"
               className="input  w-full"
               placeholder="Enter Your Price"
+              onChange={(e)=>setPrice(e.target.value)}
+              disabled={category==='Pets'}
+              value={price}
               required
             />
             <label className="label font-semibold text-black">Location</label>

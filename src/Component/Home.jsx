@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./Banner";
 import { Link, useLoaderData } from "react-router";
+import AwarenessAndHeroes from "./Awareness";
 
 const Home = () => {
   const data = useLoaderData();
@@ -44,6 +45,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <AwarenessAndHeroes></AwarenessAndHeroes>
     </div>
   );
 };
