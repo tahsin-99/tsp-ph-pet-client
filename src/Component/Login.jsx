@@ -68,11 +68,11 @@ const Login = () => {
            
             
             
-            <button   type="submit" className="btn btn-neutral mt-4">
+            <button   type="submit" className="btn border-[#c74d2f] bg-[#c74d2f] hover:bg-[#e3d7ca] hover:text-black text-white active:scale-95 bg-orange-300mt-4">
               Login
             </button>
 
-            <button onClick={handleGoogleLogin} type="button" className="btn bg-white text-black border-[#e5e5e5]">
+            <button onClick={handleGoogleLogin} type="button" className="btn bg-white  text-black border-[#e5e5e5]">
               <svg
                 aria-label="Google logo"
                 width="16"

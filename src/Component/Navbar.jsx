@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo2.png";
 import userlogo from "../assets/user.png";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
@@ -42,7 +42,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar sm:ml-4 lg:w-full  lg:ml-0   border-b border-[#BB86FC]/40 shadow-sm     mt-10 ">
+    <div className="navbar bg-[#FFE9D2] sm:ml-4 lg:w-full  lg:ml-0   border-b border-[#BB86FC]/40 shadow-sm  text-black   mt-10 ">
       <div className="navbar-start ">
         <div className="dropdown  ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
@@ -102,7 +102,7 @@ const Navbar = () => {
         <div className="flex flex-col sm:flex-row gap-4 ">
           <div>
             <Link
-              className="btn btn-outline btn-primary w-[140px]"
+              className="btn hover:bg-pink-700 hover:text-white border-[#c74d2f] w-[140px]"
               to="/register"
             >
               Register
@@ -112,14 +112,14 @@ const Navbar = () => {
             {user ? (
               <button
                 onClick={handleLogOut}
-                className="btn btn-primary hover:bg-red-400   w-[140px]"
+                className="btn bg-[#f97f2d] text-black hover:bg-red-600 hover:text-white  w-[140px]"
                 to="/login"
               >
                 LogOut
               </button>
             ) : (
               <Link
-                className="btn btn-primary hover:bg-emerald-600  w-[140px]"
+                className="btn bg-[#c74d2f] text-white hover:bg-emerald-600  w-[140px]"
                 to="/login"
               >
                 Login

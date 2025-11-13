@@ -54,7 +54,7 @@ const AwarenessAndHeroes = () => {
         {heroes.map((hero) => (
           <div
             key={hero.id}
-            className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+            className="bg-white border-[#c74d2f] rounded-2xl shadow-md p-6 hover:shadow-xl transition"
           >
             <img
               src={hero.image}

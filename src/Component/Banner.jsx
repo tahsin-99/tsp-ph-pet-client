@@ -54,8 +54,10 @@ const Banner = () => {
           ))}
         </Slider>
       </div>
-      <div className="mt-80  p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <Link to="/pets" className="card bg-base-200 w-85 shadow-sm mx-auto">
+
+      <h1 className="text-5xl font-bold text-center mt-70">Our Services</h1>
+      <div className="mt-20    p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <Link to="/pets" className="card transform transition-transform duration-150  hover:-translate-y-4 border-[#c74d2f] active:scale-95 bg-base-200 w-85 shadow-sm mx-auto">
           <figure className="px-8 pt-10">
             <img
               src="https://images.pexels.com/photos/1452717/pexels-photo-1452717.jpeg?_gl=1*1tg4rmb*_ga*Njg3NjI2NTY3LjE3NTE4OTUzNTA.*_ga_8JE65Q40S6*czE3NjI4NjA1MDIkbzMkZzEkdDE3NjI4NjA1NjMkajU5JGwwJGgw"
@@ -75,7 +77,7 @@ const Banner = () => {
         </Link>
         <Link
           to="/petsfood"
-          className="card bg-base-200 w-85 shadow-sm mx-auto"
+          className="card transition-transform duration-150  hover:-translate-y-4 border-[#c74d2f] active:scale-95 bg-base-200 w-85 shadow-sm mx-auto"
         >
           <figure className="px-8 pt-10">
             <img
@@ -96,7 +98,7 @@ const Banner = () => {
         </Link>
         <Link
           to="/petaccessories"
-          className="card bg-base-200 w-85 shadow-sm mx-auto"
+          className="card transition-transform duration-150  hover:-translate-y-4 border-[#c74d2f] active:scale-95 bg-base-200 w-85 shadow-sm mx-auto"
         >
           <figure className="px-8 pt-10">
             <img
@@ -117,10 +119,10 @@ const Banner = () => {
         </Link>
         <Link
           to="/petcare"
-          className="card bg-base-200 w-85 shadow-sm
+          className="card transition-transform duration-150  hover:-translate-y-4 border-[#c74d2f] active:scale-95 bg-base-200 w-85 shadow-sm
       mx-auto"
         >
-          <figure className="px-8 pt-10">
+          <figure className="px-8  pt-10">
             <img
               src="https://images.pexels.com/photos/17605540/pexels-photo-17605540.jpeg?_gl=1*1gp696w*_ga*Njg3NjI2NTY3LjE3NTE4OTUzNTA.*_ga_8JE65Q40S6*czE3NjI4NjA1MDIkbzMkZzEkdDE3NjI4NjA5MjMkajIyJGwwJGgw"
               alt=""

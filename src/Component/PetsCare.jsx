@@ -34,7 +34,7 @@ const PetsCare = () => {
                     {d.date}
                   </div>
                 </div>
-                <Link to={`/card-ditails/${d._id}`} className="btn btn-primary">
+                <Link to={`/card-ditails/${d._id}`} className="btn btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white active:scale-95 bg-orange-300">
                   See Details
                 </Link>
               </div>

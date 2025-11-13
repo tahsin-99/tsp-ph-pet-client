@@ -85,7 +85,7 @@ const CardDetails = () => {
             <p className="py-6">{data.email}</p>
             <button
               onClick={handleModalOrder}
-              className="btn btn-primary rounded-3xl"
+              className="btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white rounded-3xl"
             >
               Order Now
             </button>
@@ -176,7 +176,7 @@ const CardDetails = () => {
                       required
                     />
 
-                    <button type="submit" className="btn btn-primary mt-10">
+                    <button type="submit" className="btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white mt-10 active:scale-95 bg-orange-300">
                       Submit
                     </button>
                   </fieldset>

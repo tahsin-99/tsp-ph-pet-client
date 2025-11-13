@@ -67,14 +67,14 @@ const AddListing = () => {
         Add Your Pet & Supplies
       </p>
      <div className="p-5">
-       <div className="border p-5  lg:mx-auto  rounded-md">
+       <div className="border bg-white  border-[#c74d2f] p-5  lg:mx-auto  rounded-md">
         <form onSubmit={handleSubmit} className="">
           <fieldset className="fieldset ">
             <label className="label font-semibold text-black">Name</label>
             <input
               type="text"
               name="name"
-              className="input  w-full"
+              className="input  border-[#c74d2f] w-full"
               placeholder="Enter Name"
               required
             />
@@ -82,12 +82,12 @@ const AddListing = () => {
             <input
               type="text"
               name="sellerName"
-              className="input  w-full"
+              className="input  border-[#c74d2f] w-full"
               placeholder="Enter Name"
               required
             />
             <label for='Dropdown' className="font-semibold">Choose a Category:</label>
-            <select id='Dropdown' className="border border-gray-200 w-full h-10 rounded-sm" name='category' onChange={handleCategory}>
+            <select id='Dropdown' className="border border-[#c74d2f] w-full h-10 rounded-sm" name='category' onChange={handleCategory}>
               <option value=''>Select Category</option>
                 <option value='Pets'>Pets</option>
                 <option value='Pet Food'>Pet Food</option>
@@ -98,7 +98,7 @@ const AddListing = () => {
             <input
               type="text"
               name="price"
-              className="input  w-full"
+              className="input border-[#c74d2f] w-full"
               placeholder="Enter Your Price"
               onChange={(e)=>setPrice(e.target.value)}
               disabled={category==='Pets'}
@@ -109,7 +109,7 @@ const AddListing = () => {
             <input
               type="text"
               name="location"
-              className="input  w-full"
+              className="input border-[#c74d2f] w-full"
               placeholder="Enter Your Location"
               required
             />
@@ -117,29 +117,29 @@ const AddListing = () => {
             <input
               type="text"
               name="title"
-              className="input  w-full"
+              className="input border-[#c74d2f] w-full"
               placeholder="Enter Your Title"
               required
             />
             <label className="label font-semibold text-black">Description</label>
-            <textarea name='description' className="textarea  w-full" placeholder="Write description"></textarea>
+            <textarea name='description' className="textarea border-[#c74d2f] w-full" placeholder="Write description"></textarea>
 
             <label className="label font-semibold text-black">Photo URL</label>
             <input
               type="text"
               name="photo"
-              className="input w-full"
+              className="input  border-[#c74d2f] w-full"
               placeholder="Enter URL"
               required
             />
             <label   className="label font-semibold text-black">Date</label>
-             <input name='date' type="datetime-local" className="input w-full" />
+             <input name='date' type="datetime-local" className="input  border-[#c74d2f] w-full" />
 
             <label className="label font-semibold text-black">Email</label>
             <input
               type="email"
               name="email"
-              className="input w-full"
+              className="input  border-[#c74d2f] w-full"
               placeholder="Enter Your Email"
               defaultValue={user.email ||""}
               readOnly
@@ -147,7 +147,7 @@ const AddListing = () => {
 
            
 
-            <button type="submit" className="btn btn-primary mt-10">
+            <button type="submit" className="btn btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white active:scale-95 bg-orange-300  mt-10">
               Submit
             </button>
           </fieldset>
