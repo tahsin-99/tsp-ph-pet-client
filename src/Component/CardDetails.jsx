@@ -1,61 +1,72 @@
-import React, { use, useEffect, useState } from "react";
-import {  useNavigate, useParams } from "react-router";
+import React, { use, useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
 import Loading from "./Loading";
 import Swal from "sweetalert2";
 
 const CardDetails = () => {
-  const navigate=useNavigate()
-  const {id}=useParams()
-  const [data,setData]=useState({})
-  const [loading,setLoading]=useState(true)
-  const {user}=use(AuthContext)
+  const navigate = useNavigate();
+  const orderRef = useRef(null);
+  const { id } = useParams();
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { user } = use(AuthContext);
 
-   const handleOrder=()=>{
+  const handleModalOrder = () => {
+    orderRef.current.showModal();
+  };
 
-    fetch(`http://localhost:3000/my-orders`,{
-      method:"POST",
-      headers:{
-        'Content-Type':"application/json"
+  const handleOrder = (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.name.value,
+      buyerName: e.target.buyerName.value,
+      price: e.target.price.value,
+      quantity: e.target.quantity.value,
+      address: e.target.address.value,
+      date: e.target.date.value,
+      phone: e.target.phone.value,
+    };
+
+    fetch(`http://localhost:3000/my-orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify({...data,ordered_by:user.email})
+      body: JSON.stringify({ ...formData, ordered_by: user.email }),
     })
-    .then(res=>res.json())
-    .then(d=>{
-      console.log(d);
-     Swal.fire({
-  title: "Order has Confirmed",
-  icon: "success",
-  
-});
-      navigate('/myorders')
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+      .then((res) => res.json())
+      .then((d) => {
+        console.log(d);
+        Swal.fire({
+          title: "Order has Confirmed",
+          icon: "success",
+        });
+        navigate("/myorders");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-   }
-
-  
-  useEffect(()=>{
-
-    fetch(`http://localhost:3000/petsupplies/${id}`,{
-      headers:{
-        authorization:`Bearer ${user.accessToken}`
-      }
+  useEffect(() => {
+    fetch(`http://localhost:3000/petsupplies/${id}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
     })
-    .then(res=>res.json())
-    .then(d=>{
-      setData(d)
-      setLoading(false)
-    })
-        
-  },[user,id])
+      .then((res) => res.json())
+      .then((d) => {
+        setData(d);
+        setLoading(false);
+      });
+  }, [user, id]);
 
-  if(loading){
-    return <Loading></Loading>
+  if (loading) {
+    return <Loading></Loading>;
   }
-  
+
   return (
     <div>
       <title>{data.name}</title>
@@ -65,7 +76,113 @@ const CardDetails = () => {
           <div>
             <h1 className="text-5xl font-bold">{data.name}</h1>
             <p className="py-6">{data.description}</p>
-            <button onClick={handleOrder} className="btn btn-primary rounded-3xl">Order Now</button>
+            <button
+              onClick={handleModalOrder}
+              className="btn btn-primary rounded-3xl"
+            >
+              Order Now
+            </button>
+
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+            <dialog
+              ref={orderRef}
+              className="modal modal-bottom sm:modal-middle"
+            >
+              <div className="modal-box">
+                <h3 className="font-bold text-lg">Give You Information</h3>
+
+                <form onSubmit={handleOrder} className="">
+                  <fieldset className="fieldset ">
+                    <label className="label font-semibold text-black">
+                      Produt Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      className="input  w-full"
+                      placeholder="Enter Name"
+                      defaultValue={data.name}
+                      readOnly
+                    />
+                    <label className="label font-semibold text-black">
+                      Buyer Name
+                    </label>
+                    <input
+                      type="text"
+                      name="buyerName"
+                      className="input  w-full"
+                      placeholder="Enter Name"
+                      defaultValue={user.displayName}
+                      required
+                    />
+
+                    <label className="label font-semibold text-black">
+                      Price
+                    </label>
+                    <input
+                      type="text"
+                      name="price"
+                      className="input  w-full"
+                      placeholder="Enter Your Price"
+                      defaultValue={data.price}
+                      readOnly
+                    />
+                    <label className="label font-semibold text-black">
+                      Quantity
+                    </label>
+                    <input
+                      type="text"
+                      name="quantity"
+                      className="input  w-full"
+                      placeholder="Enter Your Quantity"
+                      required
+                    />
+                    <label className="label font-semibold text-black">
+                      Address
+                    </label>
+                    <input
+                      type="text"
+                      name="address"
+                      className="input  w-full"
+                      placeholder="Enter Your Address"
+                      required
+                    />
+
+                    <label className="label font-semibold text-black">
+                      Date
+                    </label>
+                    <input
+                      name="date"
+                      type="datetime-local"
+                      className="input w-full"
+                    />
+
+                    <label className="label font-semibold text-black">
+                      Phone
+                    </label>
+                    <input
+                      type="text"
+                      name="phone"
+                      className="input w-full"
+                      placeholder="Enter Your Phone Number"
+                      required
+                    />
+
+                    <button type="submit" className="btn btn-primary mt-10">
+                      Submit
+                    </button>
+                  </fieldset>
+                </form>
+
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className="btn">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
           </div>
         </div>
       </div>

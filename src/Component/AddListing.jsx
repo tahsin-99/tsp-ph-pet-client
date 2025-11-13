@@ -28,7 +28,7 @@ const AddListing = () => {
         e.preventDefault()
         const formData={
             name:e.target.name.value,
-            sellerName:e.target.sellerNname.value,
+            sellerName:e.target.sellerName.value,
             category:e.target.category.value,
             price:e.target.price.value,
             location:e.target.location.value,
@@ -80,7 +80,7 @@ const AddListing = () => {
             <label className="label font-semibold text-black">Seller Name</label>
             <input
               type="text"
-              name="sellerNname"
+              name="sellerName"
               className="input  w-full"
               placeholder="Enter Name"
               required

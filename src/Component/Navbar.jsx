@@ -15,7 +15,7 @@ const Navbar = () => {
         toast.info("Logout Successfully");
         setTimeout(() => {
           navigate("/login");
-        }, 1500);
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);

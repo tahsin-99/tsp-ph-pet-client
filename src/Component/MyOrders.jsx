@@ -9,7 +9,7 @@ const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(user);
+  
 
   useEffect(() => {
     fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
@@ -19,6 +19,7 @@ const MyOrders = () => {
     })
       .then((res) => res.json())
       .then((d) => {
+        console.log(d);
         setData(d);
         setLoading(false);
       });
@@ -30,21 +31,23 @@ const MyOrders = () => {
     
     const columns = [
       "Name",
-      "Email",
-      "Category",
+      "ProductName",
       "Price",
-      "Location",
+      "Quantity",
+      "Address",
       "Date",
+      "Phone"
     ];
 
    
     const rows = data.map((item) => [
       item.name,
-      item.email,
-      item.category,
+      item.buyerName,
       item.price,
-      item.location,
-      item.date || "",
+      item.quantity,
+      item.address,
+      item.date,
+      item.phone || "",
     ]);
 
     
@@ -70,23 +73,23 @@ const MyOrders = () => {
           <tr className="bg-gray-200">
             <th className="border px-4 py-2">Name</th>
             <th className="border px-4 py-2">Buyer Name</th>
-            <th className="border px-4 py-2">Category</th>
-            <th className="border px-4 py-2">Email Address</th>
             <th className="border px-4 py-2">Price</th>
-            <th className="border px-4 py-2">Location</th>
+            <th className="border px-4 py-2">Quantity</th>
+            <th className="border px-4 py-2">Address</th>
             <th className="border px-4 py-2">Date</th>
+            <th className="border px-4 py-2">Phone Number</th>
           </tr>
         </thead>
         <tbody>
           {data.map((d) => (
             <tr key={d._id}>
               <td className="border px-4 py-2 text-blue-700 font-semibold">{d.name}</td>
-              <td className="border px-4 py-2">{user.displayName}</td>
-              <td className="border px-4 py-2">{d.category}</td>
-              <td className="border px-4 py-2 font-semibold">{user.email}</td>
-              <td className="border px-4 py-2 text-red-600 font-semibold">{d.price}</td>
-              <td className="border px-4 py-2">{d.location}</td>
-              <td className="border px-4 py-2">{d.date || ""}</td>
+              <td className="border px-4 py-2">{d.buyerName}</td>
+              <td className="border px-4 py-2 font-semibold text-red-600">{d.price}</td>
+              <td className="border px-4 py-2 font-semibold">{d.quantity}</td>
+              <td className="border px-4 py-2 ">{d.address}</td>
+              <td className="border px-4 py-2">{d.date}</td>
+              <td className="border px-4 py-2 font-bold">{d.phone || ""}</td>
             </tr>
           ))}
         </tbody>
