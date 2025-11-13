@@ -49,6 +49,7 @@ const Banner = () => {
                             mx-auto w-full max-w-[1000px] rounded-xl object-cover"
                   src={d.coverPhoto}
                 />
+                
               </div>
             </div>
           ))}

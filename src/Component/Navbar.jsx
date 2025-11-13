@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import logo from "../assets/logo2.png";
 import userlogo from "../assets/user.png";
 import { Link, NavLink, useNavigate } from "react-router";
@@ -7,8 +7,18 @@ import { toast } from "react-toastify";
 const Navbar = () => {
   const { logOut, user } = use(AuthContext);
   const navigate = useNavigate();
-  
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
 
+   useEffect(() => {
+    const html = document.querySelector('html')
+     html.setAttribute("data-theme", theme)
+     localStorage.setItem("theme", theme)
+  }, [theme])
+
+
+ const handleTheme = (checked) => {
+    setTheme(checked ? "dark": "light")
+  }
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -77,6 +87,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
+        <div>
+           <input
+           onChange={(e)=>handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
+        </div>
       <div className="navbar-end">
        {
         user&&(

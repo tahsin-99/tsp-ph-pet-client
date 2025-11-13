@@ -24,6 +24,7 @@ import PrivateRoute from "./Component/PrivateRoute.jsx";
 import { ToastContainer } from "react-toastify";
 import Loading from "./Component/Loading.jsx";
 import HomeLayout from "./Component/HomeLayout.jsx";
+import Update from "./Component/Update.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,15 @@ const router = createBrowserRouter([
             <CardDetails></CardDetails>
           </PrivateRoute>
         ),
+      },
+       {
+        path: "/update-data/:id",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
+        
       },
       {
         path: "/register",
