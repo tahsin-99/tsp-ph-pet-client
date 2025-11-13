@@ -68,7 +68,8 @@ const MyOrders = () => {
         
       <h1 className="text-3xl font-bold mb-5">My Orders</h1>
       
-      <table className="table-auto w-full border border-gray-300">
+      <div className="overflow-x-auto lg:p-4">
+        <table className="table-auto w-full border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
             <th className="border px-4 py-2">Name</th>
@@ -95,6 +96,7 @@ const MyOrders = () => {
         </tbody>
         
       </table>
+      </div>
       <button
         onClick={handleDownload}
         className="mb-5 btn btn-secondary mt-10"

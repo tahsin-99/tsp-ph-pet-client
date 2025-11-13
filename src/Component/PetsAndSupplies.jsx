@@ -9,10 +9,10 @@ const PetsAndSupplies = () => {
      <title>PawMart | Pets&Supplies</title>
         <div className='flex justify-center'>
         
-        <div className='grid grid-cols-3 mt-10 gap-20 p-5 '>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 mt-10 gap-20 p-5 '>
 
         {
-            data.map((d)=><div key={d._id}  className="card border-gray-300 border-1  w-96 shadow-sm  transform transition-transform duration-150  hover:-translate-y-4 active:scale-95 cursor-pointer">
+            data.map((d)=><div key={d._id}  className="card border-gray-300 border-1  w-96 shadow-sm  transform transition-transform duration-150  hover:-translate-y-4  cursor-pointer">
   <figure>
     <img className='p-5'
       src={d.image}
@@ -30,7 +30,7 @@ const PetsAndSupplies = () => {
       <div className="badge bg-blue-300 badge-outline">{d.date}</div>
 
     </div>
-    <Link to={`/card-ditails/${d._id}`} className='btn btn-primary'>See Details</Link>
+    <Link to={`/card-ditails/${d._id}`} className='btn btn-primary active:scale-95'>See Details</Link>
   </div>
 </div>)
         }

@@ -7,7 +7,7 @@ const Pets = () => {
     <>
     <title>PawMart | Pets</title>
        <div className="flex justify-center">
-        <div className="grid grid-cols-3 mt-10 gap-20 p-5 ">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 mt-10 gap-20 p-5 ">
           {data.map((d) => (
             <div
               key={d._id}

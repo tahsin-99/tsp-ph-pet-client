@@ -1,64 +1,64 @@
-import React, { use, useEffect, useState } from 'react';
-import { AuthContext } from '../Auth/AuthProvider';
-import { Link } from 'react-router';
+import React, { use, useEffect, useState } from "react";
+import { AuthContext } from "../Auth/AuthProvider";
+import { Link } from "react-router";
 
 const MyListing = () => {
-    const {user}=use(AuthContext)
-    const [data,setData]=useState([])
-    const [loadnig,setLoadting]=useState(true)
-    useEffect(()=>{
-        fetch(`http://localhost:3000/my-listing?email=${user.email}`,{
-            headers:{
-                authorization:`Bearer ${user.accessToken}`
-            }
-        })
-        .then(res=>res.json())
-        .then(pro=>{
-             setData(pro)
-             setLoadting(false)
-        })
-        
-    },[])
+  const { user } = use(AuthContext);
+  const [data, setData] = useState([]);
+  const [loadnig, setLoadting] = useState(true);
+  useEffect(() => {
+    fetch(`http://localhost:3000/my-listing?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((pro) => {
+        setData(pro);
+        setLoadting(false);
+      });
+  }, [user]);
 
-    if(loadnig){
-        <p>Loading.......</p>
-    }
-    return (
-      <><title>PawMart | MyList</title>
-     <div className='flex justify-center'>
-      
-             
-             <div className='grid grid-cols-3 mt-10 gap-20 p-5 '>
-     
-             {
-                 data.map((d)=><div key={d._id}  className="card border-gray-300 border-1  w-96 shadow-sm  transform transition-transform duration-150  hover:-translate-y-4 active:scale-95 cursor-pointer p-5">
-       <figure>
-         <img
-           src={d.image}
-           alt="" />
-       </figure>
-       <div className="card-body">
-         <h2 className="card-title">
-          {d.name}
-           <div className="badge badge-secondary">{d.category}</div>
-         </h2>
-         <p>{d.title}</p>
-         <div className="card-actions ">
-           <div className="badge font-semibold bg-amber-500 badge-outline">৳{d.price}</div>
-           <div className="badge bg-green-500 badge-outline">{d.location}</div>
-           <div className="badge bg-blue-300 badge-outline">{d.date}</div>
-     
-         </div>
-         <Link to={`/card-ditails/${d._id}`} className='btn btn-primary'>See Details</Link>
-       </div>
-     </div>)
-             }
-     
-             </div>
-             
-             </div>
-             </>
-    );
+  if (loadnig) {
+    <p>Loading.......</p>;
+  }
+  return (
+    <>
+      <title>PawMart | MyList</title>
+      <h1 className="text-3xl  font-bold mb-5 ml-5 mt-5">My Listing</h1>
+
+      <div className="overflow-x-auto lg:p-4 p-2 sm:ml-4">
+        <table className="table-auto w-full border border-gray-300">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border px-4 py-2">Image</th>
+              <th className="border px-4 py-2">Name</th>
+              <th className="border px-4 py-2">Category</th>
+              <th className="border px-4 py-2">Price</th>
+              <th className="border px-4 py-2">Location</th>
+              <th className="border px-4 py-2">Date</th>
+            </tr>
+          </thead>
+          <tbody className="">
+            {data.map((d) => (
+              <tr key={d._id}>
+                <td className="border px-4 py-2 text-blue-700 font-semibold">
+                  <img className="w-30 rounded-2xl" src={d.image} alt="" />
+                </td>
+                <td className="border px-4 py-2 font-bold">{d.name}</td>
+                <td className="border px-4 py-2 font-semibold text-red-600">
+                  {d.category}
+                </td>
+                <td className="border px-4 py-2 font-semibold">{d.price}</td>
+                <td className="border px-4 py-2 ">{d.location}</td>
+                <td className="border px-4 py-2">{d.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
 };
 
 export default MyListing;

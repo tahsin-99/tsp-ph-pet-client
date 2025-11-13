@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Home from "./Component/Home.jsx";
-import Homeayout from "./Component/Homeayout.jsx";
+
 import PetsAndSupplies from "./Component/PetsAndSupplies.jsx";
 import Login from "./Component/Login.jsx";
 import Register from "./Component/Register.jsx";
@@ -23,71 +23,86 @@ import CardDetails from "./Component/CardDetails.jsx";
 import PrivateRoute from "./Component/PrivateRoute.jsx";
 import { ToastContainer } from "react-toastify";
 import Loading from "./Component/Loading.jsx";
+import HomeLayout from "./Component/HomeLayout.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component:Homeayout,
-    hydrateFallbackElement:<Loading></Loading>,
-    errorElement:<Errorpage></Errorpage>,
-    children:[
+    Component:HomeLayout ,
+    hydrateFallbackElement: <Loading></Loading>,
+    errorElement: <Errorpage></Errorpage>,
+    children: [
       {
-        index:true,
-        Component:Home,
-        loader:()=>fetch('http://localhost:3000/latest-post')
-      },
-      {
-        path:'/petsandsupplies',
-        Component:PetsAndSupplies,
-        loader:()=>fetch('http://localhost:3000/petsupplies')
+        index: true,
+        Component: Home,
+        loader: () => fetch("http://localhost:3000/latest-post"),
       },
       {
-         path:'/card-ditails/:id',
-        element:<PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
-        
+        path: "/petsandsupplies",
+        Component: PetsAndSupplies,
+        loader: () => fetch("http://localhost:3000/petsupplies"),
       },
       {
-        path:'/register',
-        Component:Register
+        path: "/card-ditails/:id",
+        element: (
+          <PrivateRoute>
+            <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/login',
-        Component:Login
+        path: "/register",
+        Component: Register,
       },
-       {
-        path:'/addlisting',
-         element:<PrivateRoute><AddListing></AddListing></PrivateRoute>,
+      {
+        path: "/login",
+        Component: Login,
       },
-       {
-        path:'/mylisting',
-         element:<PrivateRoute><MyListing></MyListing></PrivateRoute>,
+      {
+        path: "/addlisting",
+        element: (
+          <PrivateRoute>
+            <AddListing></AddListing>
+          </PrivateRoute>
+        ),
       },
-       {
-        path:'/myorders',
-         element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>,
+      {
+        path: "/mylisting",
+        element: (
+          <PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+        ),
       },
-       {
-        path:'/pets',
-        Component:Pets,
-        loader:()=>fetch('http://localhost:3000/pets')
+      {
+        path: "/myorders",
+        element: (
+          <PrivateRoute>
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+        ),
       },
-       {
-        path:'/petsfood',
-        Component:PetFoods,
-        loader:()=>fetch('http://localhost:3000/petsfood')
+      {
+        path: "/pets",
+        Component: Pets,
+        loader: () => fetch("http://localhost:3000/pets"),
       },
-       {
-        path:'/petaccessories',
-        Component:PetAccesories,
-        loader:()=>fetch('http://localhost:3000/petsaccessories')
+      {
+        path: "/petsfood",
+        Component: PetFoods,
+        loader: () => fetch("http://localhost:3000/petsfood"),
       },
-       {
-        path:'/petcare',
-        Component:PetsCare,
-        loader:()=>fetch('http://localhost:3000/petsproducts')
+      {
+        path: "/petaccessories",
+        Component: PetAccesories,
+        loader: () => fetch("http://localhost:3000/petsaccessories"),
       },
-
-    ]
+      {
+        path: "/petcare",
+        Component: PetsCare,
+        loader: () => fetch("http://localhost:3000/petsproducts"),
+      },
+    ],
   },
 ]);
 

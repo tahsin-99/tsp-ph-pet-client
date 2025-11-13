@@ -66,7 +66,8 @@ const AddListing = () => {
       <p className="text-4xl font-bold text-center mt-20 mb-10">
         Add Your Pet & Supplies
       </p>
-      <div className="border p-5 w-[800px] mx-auto  rounded-md">
+     <div className="p-5">
+       <div className="border p-5  lg:mx-auto  rounded-md">
         <form onSubmit={handleSubmit} className="">
           <fieldset className="fieldset ">
             <label className="label font-semibold text-black">Name</label>
@@ -152,6 +153,7 @@ const AddListing = () => {
           </fieldset>
         </form>
       </div>
+     </div>
     </>
   );
 };

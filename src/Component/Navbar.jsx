@@ -42,7 +42,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar    border-b border-[#BB86FC]/40 shadow-sm md:ml-30 p-10  lg:mx-auto mt-10 ">
+    <div className="navbar sm:ml-4 lg:w-full  lg:ml-0   border-b border-[#BB86FC]/40 shadow-sm     mt-10 ">
       <div className="navbar-start ">
         <div className="dropdown  ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
@@ -70,7 +70,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex  items-center sm:gap-5 ">
-          <img className="sm:w-20  " src={logo} alt="" />
+          <img className="sm:w-20  w-10  " src={logo} alt="" />
           <p className="  sm:text-[48px] font-bold ">PawMart</p>
         </Link>
       </div>

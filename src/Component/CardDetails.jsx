@@ -76,6 +76,13 @@ const CardDetails = () => {
           <div>
             <h1 className="text-5xl font-bold">{data.name}</h1>
             <p className="py-6">{data.description}</p>
+            <div className=" gap-3 font-semibold">
+              <p className="py-6"><span className="font-bold">Category : </span>{data.category}</p>
+              <p className="py-6"><span className="font-bold">Location : </span>{data.location}</p>
+              <p className="py-6"><span className="font-bold">Price: </span>৳ {data.price}</p>
+            
+            </div>
+            <p className="py-6">{data.email}</p>
             <button
               onClick={handleModalOrder}
               className="btn btn-primary rounded-3xl"
@@ -83,7 +90,7 @@ const CardDetails = () => {
               Order Now
             </button>
 
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
+           
 
             <dialog
               ref={orderRef}

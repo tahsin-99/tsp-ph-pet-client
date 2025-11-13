@@ -29,9 +29,9 @@ const AwarenessAndHeroes = () => {
   ];
 
   return (
-    <div className="bg-gray-50  py-12 px-4 sm:px-8 md:px-16 lg:px-24">
+    <div className="bg-gray-50  py-12 px-4  sm:px-8 md:px-16 lg:px-24">
      
-      <div className="text-center mb-16 border h-60 flex flex-col justify-center rounded-xl bg-amber-200 mt-50">
+      <div className="text-center mb-16 border h-full p-10 flex flex-col justify-center rounded-xl bg-amber-200 mt-50">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
           🐾 Why Adopt from PawMart?
         </h2>

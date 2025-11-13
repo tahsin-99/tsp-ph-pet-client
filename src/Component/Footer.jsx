@@ -7,7 +7,7 @@ import logo from '../assets/logo.jpg'
 
 const Footer = () => {
     return (
-        <footer className=' bg- lg:w-full md:w-[1400px]  lg:mx-auto border-white md:ml-4 mt-60'>
+        <footer className=' lg:w-full  sm:w-full  lg:mx-auto border border-white md:ml-4 mt-60'>
         <div className=' w-full  grid sm:grid-cols-5 grid-cols-1
         h-auto gap-20 items-center p-4 '>
             <div className='text-black'>
