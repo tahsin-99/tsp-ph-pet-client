@@ -1,17 +1,17 @@
 import React, { use, useEffect, useState } from "react";
-import {  useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
 import Loading from "./Loading";
 import { toast } from "react-toastify";
 
 const Update = () => {
   const { id } = useParams();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:3000/petsupplies/${id}`, {
+    fetch(`https://pet-supply-server.vercel.app/petsupplies/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -32,31 +32,27 @@ const Update = () => {
       category: e.target.category.value,
       price: e.target.price.value,
       location: e.target.location.value,
-      
+
       date: e.target.date.value,
       email: e.target.email.value,
     };
-     fetch(`http://localhost:3000/petsupplies/${data._id}`,
-            {
-                method:'PUT',
-                headers:{
-                    "Content-Type":"application/json",
-                    authorization: `Bearer ${user.accessToken}`
-
-                },
-                body:JSON.stringify(formData),
-                
-            }
-           )
-           .then(res=>res.json())
-           .then(data=>{
-            console.log(data);
-            toast.success('Updated Successfully')
-            navigate('/')
-           })
-           .catch(error=>{
-            error
-           })
+    fetch(`https://pet-supply-server.vercel.app/petsupplies/${data._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${user.accessToken}`,
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Updated Successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        error;
+      });
   };
   if (loading) {
     return <Loading></Loading>;

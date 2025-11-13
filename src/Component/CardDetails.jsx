@@ -29,7 +29,7 @@ const CardDetails = () => {
       phone: e.target.phone.value,
     };
 
-    fetch(`http://localhost:3000/my-orders`, {
+    fetch(`https://pet-supply-server.vercel.app/my-orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const CardDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/petsupplies/${id}`, {
+    fetch(`https://pet-supply-server.vercel.app/petsupplies/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -77,10 +77,17 @@ const CardDetails = () => {
             <h1 className="text-5xl font-bold">{data.name}</h1>
             <p className="py-6">{data.description}</p>
             <div className=" gap-3 font-semibold">
-              <p className="py-6"><span className="font-bold">Category : </span>{data.category}</p>
-              <p className="py-6"><span className="font-bold">Location : </span>{data.location}</p>
-              <p className="py-6"><span className="font-bold">Price: </span>৳ {data.price}</p>
-            
+              <p className="py-6">
+                <span className="font-bold">Category : </span>
+                {data.category}
+              </p>
+              <p className="py-6">
+                <span className="font-bold">Location : </span>
+                {data.location}
+              </p>
+              <p className="py-6">
+                <span className="font-bold">Price: </span>৳ {data.price}
+              </p>
             </div>
             <p className="py-6">{data.email}</p>
             <button
@@ -89,8 +96,6 @@ const CardDetails = () => {
             >
               Order Now
             </button>
-
-           
 
             <dialog
               ref={orderRef}
@@ -176,7 +181,10 @@ const CardDetails = () => {
                       required
                     />
 
-                    <button type="submit" className="btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white mt-10 active:scale-95 bg-orange-300">
+                    <button
+                      type="submit"
+                      className="btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white mt-10 active:scale-95 bg-orange-300"
+                    >
                       Submit
                     </button>
                   </fieldset>

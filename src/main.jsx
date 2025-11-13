@@ -29,19 +29,19 @@ import Update from "./Component/Update.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    Component:HomeLayout ,
+    Component: HomeLayout,
     hydrateFallbackElement: <Loading></Loading>,
     errorElement: <Errorpage></Errorpage>,
     children: [
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/latest-post"),
+        loader: () => fetch("https://pet-supply-server.vercel.app/latest-post"),
       },
       {
         path: "/petsandsupplies",
         Component: PetsAndSupplies,
-        loader: () => fetch("http://localhost:3000/petsupplies"),
+        loader: () => fetch("https://pet-supply-server.vercel.app/petsupplies"),
       },
       {
         path: "/card-ditails/:id",
@@ -51,14 +51,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-       {
+      {
         path: "/update-data/:id",
         element: (
           <PrivateRoute>
             <Update></Update>
           </PrivateRoute>
         ),
-        
       },
       {
         path: "/register",
@@ -95,22 +94,24 @@ const router = createBrowserRouter([
       {
         path: "/pets",
         Component: Pets,
-        loader: () => fetch("http://localhost:3000/pets"),
+        loader: () => fetch("https://pet-supply-server.vercel.app/pets"),
       },
       {
         path: "/petsfood",
         Component: PetFoods,
-        loader: () => fetch("http://localhost:3000/petsfood"),
+        loader: () => fetch("https://pet-supply-server.vercel.app/petsfood"),
       },
       {
         path: "/petaccessories",
         Component: PetAccesories,
-        loader: () => fetch("http://localhost:3000/petsaccessories"),
+        loader: () =>
+          fetch("https://pet-supply-server.vercel.app/petsaccessories"),
       },
       {
         path: "/petcare",
         Component: PetsCare,
-        loader: () => fetch("http://localhost:3000/petsproducts"),
+        loader: () =>
+          fetch("https://pet-supply-server.vercel.app/petsproducts"),
       },
     ],
   },

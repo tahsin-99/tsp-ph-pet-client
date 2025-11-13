@@ -4,8 +4,8 @@ import { Link, useLoaderData } from "react-router";
 const PetsAndSupplies = () => {
   const data = useLoaderData();
   const [loading, setLoading] = useState(false);
-   const [cards, setCards] = useState(data)
-   console.log(cards);
+  const [cards, setCards] = useState(data);
+  console.log(cards);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -13,19 +13,22 @@ const PetsAndSupplies = () => {
     console.log(search_text);
     setLoading(true);
 
-     fetch(`http://localhost:3000/search?search=${search_text}`)
-    .then(res=> res.json())
-    .then(data=> {
-      console.log(data)
-      setCards(data)
-      setLoading(false)
-    })
+    fetch(`https://pet-supply-server.vercel.app/search?search=${search_text}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCards(data);
+        setLoading(false);
+      });
   };
   return (
     <>
       <title>PawMart | Pets&Supplies</title>
 
-      <form onSubmit={handleSearch} className=" mt-5 mb-10 flex gap-2 justify-center">
+      <form
+        onSubmit={handleSearch}
+        className=" mt-5 mb-10 flex gap-2 justify-center"
+      >
         <label className="input rounded-full ">
           <svg
             className="h-[1em] opacity-50"
@@ -45,7 +48,9 @@ const PetsAndSupplies = () => {
           </svg>
           <input name="search" type="search" placeholder="Search" />
         </label>
-        <button className="btn btn-primary  rounded-full">{loading ? "Searching...." : "Search"}</button>
+        <button className="btn btn-primary  rounded-full">
+          {loading ? "Searching...." : "Search"}
+        </button>
       </form>
       <div className="flex justify-center">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 mt-10 gap-20 p-5 ">

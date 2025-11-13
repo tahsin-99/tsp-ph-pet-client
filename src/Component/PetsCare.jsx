@@ -12,7 +12,7 @@ const PetsCare = () => {
           {data.map((d) => (
             <div
               key={d._id}
-              className="card border-gray-300 border-1  w-96 shadow-sm"
+              className="card border-[#c74d2f] border   w-96 shadow-sm"
             >
               <figure>
                 <img src={d.image} alt="" />
@@ -34,7 +34,7 @@ const PetsCare = () => {
                     {d.date}
                   </div>
                 </div>
-                <Link to={`/card-ditails/${d._id}`} className="btn btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white active:scale-95 bg-orange-300">
+                <Link to={`/card-ditails/${d._id}`} className=" btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white active:scale-95 bg-orange-300">
                   See Details
                 </Link>
               </div>

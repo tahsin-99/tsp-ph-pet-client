@@ -3,18 +3,20 @@ import { AuthContext } from "../Auth/AuthProvider";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
-
 const MyListing = () => {
   const { user } = use(AuthContext);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loadnig, setLoadting] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:3000/my-listing?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://pet-supply-server.vercel.app/my-listing?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((pro) => {
         setData(pro);
@@ -33,7 +35,7 @@ const MyListing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/petsupplies/${id}`, {
+        fetch(`https://pet-supply-server.vercel.app/petsupplies/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -100,7 +102,7 @@ const MyListing = () => {
                     Update
                   </Link>
                   <button
-                    onClick={()=>handledDelete(d._id)}
+                    onClick={() => handledDelete(d._id)}
                     className="btn btn-secondary w-20 mt-5"
                   >
                     Delete
