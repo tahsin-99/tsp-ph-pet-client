@@ -13,7 +13,7 @@ const PetsAndSupplies = () => {
     console.log(search_text);
     setLoading(true);
 
-    fetch(`https://pet-supply-server.vercel.app/search?search=${search_text}`)
+    fetch(`http://localhost:3000/search?search=${search_text}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -53,7 +53,7 @@ const PetsAndSupplies = () => {
         </button>
       </form>
       <div className="flex justify-center">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 mt-10 gap-20 p-5 ">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 mt-10 gap-20 p-5 ">
           {cards.map((d) => (
             <div
               key={d._id}

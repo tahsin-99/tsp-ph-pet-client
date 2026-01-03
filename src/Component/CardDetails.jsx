@@ -13,6 +13,10 @@ const CardDetails = () => {
   const { user } = use(AuthContext);
 
   const handleModalOrder = () => {
+    if (!user) {
+      navigate("/login");
+      return; // stop execution
+    }
     orderRef.current.showModal();
   };
 
@@ -29,7 +33,7 @@ const CardDetails = () => {
       phone: e.target.phone.value,
     };
 
-    fetch(`https://pet-supply-server.vercel.app/my-orders`, {
+    fetch(`http://localhost:3000/my-orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,11 +55,7 @@ const CardDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`https://pet-supply-server.vercel.app/petsupplies/${id}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(`http://localhost:3000/petsupplies/${id}`)
       .then((res) => res.json())
       .then((d) => {
         setData(d);
@@ -71,8 +71,8 @@ const CardDetails = () => {
     <div>
       <title>{data.name}</title>
       <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row">
-          <img src={data.image} className="w-100 rounded-lg shadow-2xl" />
+        <div className="hero-content flex-col lg:flex-row gap-10">
+          <img src={data.image} className="w-100  rounded-lg shadow-2xl" />
           <div>
             <h1 className="text-5xl font-bold">{data.name}</h1>
             <p className="py-6">{data.description}</p>
@@ -84,6 +84,10 @@ const CardDetails = () => {
               <p className="py-6">
                 <span className="font-bold">Location : </span>
                 {data.location}
+              </p>
+              <p className="py-6">
+                <span className="font-bold">Listig Date: </span>
+                {data.date}
               </p>
               <p className="py-6">
                 <span className="font-bold">Price: </span>৳ {data.price}
@@ -125,7 +129,7 @@ const CardDetails = () => {
                       name="buyerName"
                       className="input  w-full"
                       placeholder="Enter Name"
-                      defaultValue={user.displayName}
+                      defaultValue={user?.displayName}
                       required
                     />
 

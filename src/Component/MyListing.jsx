@@ -10,14 +10,11 @@ const MyListing = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://pet-supply-server.vercel.app/my-listing?email=${user.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      }
-    )
+    fetch(`http://localhost:3000/my-listing?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((pro) => {
         setData(pro);
@@ -36,7 +33,7 @@ const MyListing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://pet-supply-server.vercel.app/petsupplies/${id}`, {
+        fetch(`http://localhost:3000/petsupplies/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -91,9 +88,16 @@ const MyListing = () => {
           </thead>
           <tbody>
             {data.map((d) => (
-              <tr key={d._id} className="hover:bg-gray-100 dark:hover:bg-gray-800">
+              <tr
+                key={d._id}
+                className="hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
                 <td className="border px-4 py-2 text-center">
-                  <img className="w-30 rounded-2xl" src={d.image} alt={d.name} />
+                  <img
+                    className="w-30 rounded-2xl"
+                    src={d.image}
+                    alt={d.name}
+                  />
                 </td>
                 <td className="border px-4 py-2 font-bold text-gray-800 dark:text-gray-100">
                   {d.name}

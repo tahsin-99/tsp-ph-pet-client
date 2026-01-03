@@ -34,7 +34,7 @@ const AddListing = () => {
       date: e.target.date.value,
       email: e.target.email.value,
     };
-    fetch("https://pet-supply-server.vercel.app/petsupplies", {
+    fetch("http://localhost:3000/petsupplies", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,18 +56,20 @@ const AddListing = () => {
     <>
       <title>PawMart | AddList</title>
 
-      <p className="text-4xl font-bold text-center mt-20 mb-10
-        text-gray-800 dark:text-gray-100">
+      <p
+        className="text-4xl font-bold text-center mt-20 mb-10
+        text-gray-800 dark:text-gray-100"
+      >
         Add Your Pet & Supplies
       </p>
 
       <div className="p-5 bg-gray-50 dark:bg-gray-900 min-h-screen">
-        <div className="border bg-white dark:bg-gray-800
-          border-[#c74d2f] p-5 lg:mx-auto rounded-md">
-
+        <div
+          className="border bg-white dark:bg-gray-800
+          border-[#c74d2f] p-5 lg:mx-auto rounded-md"
+        >
           <form onSubmit={handleSubmit}>
             <fieldset className="fieldset">
-
               <label className="label font-semibold text-black dark:text-gray-200">
                 Name
               </label>
@@ -216,7 +218,6 @@ const AddListing = () => {
               >
                 Submit
               </button>
-
             </fieldset>
           </form>
         </div>

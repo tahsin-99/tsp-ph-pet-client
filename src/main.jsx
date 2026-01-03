@@ -46,20 +46,16 @@ const router = createBrowserRouter([
         loader: () => fetch("https://pet-supply-server.vercel.app/petsupplies"),
       },
       {
-        path:'/about',
-        Component:About
+        path: "/about",
+        Component: About,
       },
-       {
-        path:'/contact',
-        Component:Contact
+      {
+        path: "/contact",
+        Component: Contact,
       },
       {
         path: "/card-ditails/:id",
-        element: (
-          <PrivateRoute>
-            <CardDetails></CardDetails>
-          </PrivateRoute>
-        ),
+        Component: CardDetails,
       },
       {
         path: "/update-data/:id",

@@ -10,14 +10,11 @@ const MyOrders = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://pet-supply-server.vercel.app/my-orders?email=${user.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      }
-    )
+    fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((d) => {
         console.log(d);
