@@ -37,6 +37,8 @@ const Navbar = () => {
       <div className="flex flex-col lg:flex-row  text-[20px]  gap-5 font-semibold ">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/petsandsupplies">Pet & Supplies</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
 
         {user && (
           <>

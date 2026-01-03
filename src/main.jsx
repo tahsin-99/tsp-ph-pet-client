@@ -25,6 +25,8 @@ import { ToastContainer } from "react-toastify";
 import Loading from "./Component/Loading.jsx";
 import HomeLayout from "./Component/HomeLayout.jsx";
 import Update from "./Component/Update.jsx";
+import About from "./Component/About.jsx";
+import Contact from "./Component/Contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
         path: "/petsandsupplies",
         Component: PetsAndSupplies,
         loader: () => fetch("https://pet-supply-server.vercel.app/petsupplies"),
+      },
+      {
+        path:'/about',
+        Component:About
+      },
+       {
+        path:'/contact',
+        Component:Contact
       },
       {
         path: "/card-ditails/:id",

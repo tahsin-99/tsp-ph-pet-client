@@ -4,6 +4,7 @@ import inImg from '../assets/in.png'
 import fImg from '../assets/f.png'
 import mImg from '../assets/m.png'
 import logo from '../assets/logo2.png'
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
@@ -16,7 +17,7 @@ const Footer = () => {
             </div>
             <div className='space-y-4'>
         <h3 className='font-semibold text-black'>Company</h3>
-        <p className='text-gray-300'>About Us</p>
+        <Link to='/about' className='text-gray-300'>About Us</Link>
         <p className='text-gray-300'>Our Mission</p>
         <p className='text-gray-300'> Contact Saled </p>
             </div>
