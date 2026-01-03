@@ -27,6 +27,8 @@ import HomeLayout from "./Component/HomeLayout.jsx";
 import Update from "./Component/Update.jsx";
 import About from "./Component/About.jsx";
 import Contact from "./Component/Contact.jsx";
+import AwarenessAndHeroes from "./Component/Heroes.jsx";
+import Heroes from "./Component/Heroes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -118,6 +120,10 @@ const router = createBrowserRouter([
         Component: PetsCare,
         loader: () =>
           fetch("https://pet-supply-server.vercel.app/petsproducts"),
+      },
+      {
+        path: "/heroes",
+        Component: Heroes,
       },
     ],
   },
