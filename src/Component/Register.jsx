@@ -49,7 +49,7 @@ const Register = () => {
   return (
     <>
       <title>PawMart | Register</title>
-      <div className="flex flex-col lg:flex-row gap-3 justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="flex flex-col lg:flex-row gap-3 justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900 mt-60">
 
         {/* Left image */}
         <div className="flex-shrink-0">

@@ -10,11 +10,14 @@ const MyListing = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-listing?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://pet-server-sable.vercel.app/my-listing?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((pro) => {
         setData(pro);
@@ -33,7 +36,7 @@ const MyListing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/petsupplies/${id}`, {
+        fetch(`https://pet-server-sable.vercel.app/petsupplies/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -69,7 +72,7 @@ const MyListing = () => {
   return (
     <>
       <title>PawMart | MyList</title>
-      <h1 className="text-3xl font-bold mb-5 ml-5 mt-5 text-gray-800 dark:text-gray-100">
+      <h1 className="text-3xl font-bold mb-5 ml-5 mt-5 text-gray-800 dark:text-gray-100 mt-50">
         My Listing
       </h1>
 

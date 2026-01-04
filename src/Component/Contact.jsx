@@ -12,7 +12,7 @@ const Contact = () => {
       email: e.target.email.value,
       description: e.target.description.value,
     };
-    fetch("http://localhost:3000/contacts", {
+    fetch("https://pet-server-sable.vercel.app/contacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,9 +37,9 @@ const Contact = () => {
   return (
     <div
       className="min-h-screen py-16 px-4 
-                    bg-orange-50 dark:bg-gray-900 transition-colors"
+                    bg-orange-50 dark:bg-gray-900 transition-colors mt-50"
     >
-      {/* Header */}
+      <title>PawMart | Contact</title>
       <div className="text-center max-w-3xl mx-auto mb-14">
         <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
           Contact <span className="text-orange-500">Us</span>
@@ -49,16 +49,16 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* Content */}
+     
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
-        {/* Info Cards */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {[
-            { icon: <FaPhoneAlt />, title: "Phone", text: "+880 1234-567890" },
+            { icon: <FaPhoneAlt />, title: "Phone", text: "+880 1796173241" },
             {
               icon: <FaEnvelope />,
               title: "Email",
-              text: "support@pawmart.com",
+              text: "tahsinsikder456@gmail.com",
             },
             {
               icon: <FaMapMarkerAlt />,
@@ -111,7 +111,7 @@ const Contact = () => {
                 Full Name
               </label>
               <input
-              name='name'
+                name="name"
                 type="text"
                 placeholder="Your name"
                 className="w-full p-3 rounded-xl border-2
@@ -127,7 +127,7 @@ const Contact = () => {
                 Email Address
               </label>
               <input
-              name='email'
+                name="email"
                 type="email"
                 placeholder="Your email"
                 className="w-full p-3 rounded-xl border-2
@@ -143,7 +143,7 @@ const Contact = () => {
                 Message
               </label>
               <textarea
-              name="description"
+                name="description"
                 rows="4"
                 placeholder="Write your message..."
                 className="w-full p-3 rounded-xl border-2

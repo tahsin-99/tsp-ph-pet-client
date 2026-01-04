@@ -3,10 +3,11 @@ import { FaPaw, FaHeart, FaTruck, FaShieldAlt } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div className="min-h-screen py-16 px-4 
+    
+    <div className="min-h-screen mt-50 py-16 px-4 
       bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
 
-      {/* Header Section */}
+      <title>PawMart | About</title>
       <div className="text-center max-w-3xl mx-auto mb-14">
         <h1 className="text-4xl font-bold 
           text-gray-800 dark:text-gray-100 mb-4">

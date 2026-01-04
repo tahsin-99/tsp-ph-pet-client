@@ -33,7 +33,7 @@ const CardDetails = () => {
       phone: e.target.phone.value,
     };
 
-    fetch(`http://localhost:3000/my-orders`, {
+    fetch(`https://pet-server-sable.vercel.app/my-orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const CardDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/petsupplies/${id}`)
+    fetch(`https://pet-server-sable.vercel.app/petsupplies/${id}`)
       .then((res) => res.json())
       .then((d) => {
         setData(d);
@@ -70,7 +70,7 @@ const CardDetails = () => {
   return (
     <div>
       <title>{data.name}</title>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen mt-50">
         <div className="hero-content flex-col lg:flex-row gap-10">
           <img src={data.image} className="w-100  rounded-lg shadow-2xl" />
           <div>

@@ -34,10 +34,10 @@ const Heroes = () => {
   ];
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-8 md:px-16 lg:px-24 text-gray-800 dark:text-gray-100 mt-100">
+    <div className="bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-8 md:px-16 lg:px-24 text-gray-800 dark:text-gray-100 ">
       
      
-     <Awareness></Awareness>
+     
 
      
       <div className="text-center mb-8 mt-16">

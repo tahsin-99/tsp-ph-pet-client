@@ -32,10 +32,10 @@ const Login = () => {
   return (
     <>
       <title>PawMart | Login</title>
-      <div className="flex flex-col lg:flex-row gap-3 justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="flex flex-col lg:flex-row gap-3 justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900 mt-60">
 
-        {/* Left Image */}
-        <div className="flex-shrink-0 hidden lg:flex">
+      
+        <div className="flex-shrink-0  ">
           <img 
             width={600} 
             src="https://plus.unsplash.com/premium_photo-1681843815216-f50fc50d0b8a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 

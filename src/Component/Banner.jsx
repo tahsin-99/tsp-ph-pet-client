@@ -43,7 +43,7 @@ const Banner = () => {
   return (
     <>
      
-         <div className="text-center  space-y-5 mt-30  mx-auto">
+         <div className="text-center  space-y-5 mt-60 mx-auto">
           <AnimatedTitle
             text="Welcome"
             className="font-bold text-5xl text-Black"

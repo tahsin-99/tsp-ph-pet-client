@@ -3,91 +3,144 @@ import { Link, useLoaderData } from "react-router";
 
 const PetsAndSupplies = () => {
   const data = useLoaderData();
-  const [loading, setLoading] = useState(false);
   const [cards, setCards] = useState(data);
-  console.log(cards);
+  const [loading, setLoading] = useState(false);
+
+  const [filters, setFilters] = useState({
+    search: "",
+    category: "All",
+    location: "All",
+  });
+
+  // Get unique categories and locations
+  const categories = ["All", ...new Set(data.map((d) => d.category))];
+  const locations = ["All", ...new Set(data.map((d) => d.location))];
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters({ ...filters, [name]: value });
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const search_text = e.target.search.value;
-    console.log(search_text);
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCards(data);
-        setLoading(false);
-      });
+    let filtered = data;
+
+    if (filters.search.trim() !== "") {
+      const searchText = filters.search.toLowerCase();
+      filtered = filtered.filter((d) =>
+        d.name.toLowerCase().includes(searchText)
+      );
+    }
+
+    if (filters.category !== "All") {
+      filtered = filtered.filter((d) => d.category === filters.category);
+    }
+
+    if (filters.location !== "All") {
+      filtered = filtered.filter((d) => d.location === filters.location);
+    }
+
+    setCards(filtered);
+    setLoading(false);
   };
+
   return (
     <>
-      <title>PawMart | Pets&Supplies</title>
+      <title>PawMart | Pets & Supplies</title>
 
+      {/* Filters */}
       <form
         onSubmit={handleSearch}
-        className=" mt-5 mb-10 flex gap-2 justify-center"
+        className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10 mt-60"
       >
-        <label className="input rounded-full ">
-          <svg
-            className="h-[1em] opacity-50"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <g
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2.5"
-              fill="none"
-              stroke="currentColor"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input name="search" type="search" placeholder="Search" />
-        </label>
-        <button className="btn btn-primary  rounded-full">
-          {loading ? "Searching...." : "Search"}
+        {/* Search input */}
+        <input
+          name="search"
+          type="search"
+          placeholder="Search by name"
+          value={filters.search}
+          onChange={handleFilterChange}
+          className="input input-sm rounded-full w-40 sm:w-60"
+        />
+
+        {/* Category */}
+        <select
+          name="category"
+          value={filters.category}
+          onChange={handleFilterChange}
+          className="input input-sm rounded-full w-40"
+        >
+          {categories.map((c, i) => (
+            <option key={i} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
+
+        {/* Location */}
+        <select
+          name="location"
+          value={filters.location}
+          onChange={handleFilterChange}
+          className="input input-sm rounded-full w-40"
+        >
+          {locations.map((l, i) => (
+            <option key={i} value={l}>
+              {l}
+            </option>
+          ))}
+        </select>
+
+        {/* Search button on the right side */}
+        <button
+          type="submit"
+          className="btn btn-primary btn-sm rounded-full"
+        >
+          {loading ? "Searching..." : "Search"}
         </button>
       </form>
+
+      {/* Cards */}
       <div className="flex justify-center">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 mt-10 gap-20 p-5 ">
-          {cards.map((d) => (
-            <div
-              key={d._id}
-              className="card border w-96 shadow-sm  transform transition-transform duration-150  hover:-translate-y-4  cursor-pointer  border-[#c74d2f]"
-            >
-              <figure>
-                <img className="p-5" src={d.image} alt="" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">
-                  {d.name}
-                  <div className="badge badge-secondary">{d.category}</div>
-                </h2>
-                <p>{d.title}</p>
-                <div className="card-actions ">
-                  <div className="badge font-semibold bg-amber-500 badge-outline">
-                    ৳{d.price}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 mt-10 gap-10 p-5">
+          {cards.length === 0 ? (
+            <p className="text-center col-span-full text-lg font-semibold">
+              No items found
+            </p>
+          ) : (
+            cards.map((d) => (
+              <div
+                key={d._id}
+                className="card border w-96 shadow-sm transform transition-transform duration-150 hover:-translate-y-2 cursor-pointer border-[#c74d2f] bg-base-100"
+              >
+                <figure>
+                  <img
+                    className="p-5 w-full h-56 object-cover rounded-lg"
+                    src={d.image}
+                    alt={d.name}
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">{d.name}</h2>
+                  <p>{d.title}</p>
+                  <div className="card-actions justify-between mt-2">
+                    <div className="badge font-semibold bg-amber-500 badge-outline">
+                      ৳{d.price}
+                    </div>
+                    <div className="badge badge-outline">{d.location}</div>
                   </div>
-                  <div className="badge bg-green-500 badge-outline">
-                    {d.location}
-                  </div>
-                  <div className="badge bg-blue-300 badge-outline">
-                    {d.date}
-                  </div>
+                  <Link
+                    to={`/card-ditails/${d._id}`}
+                    className="btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white active:scale-95 bg-orange-300 mt-3"
+                  >
+                    See Details
+                  </Link>
                 </div>
-                <Link
-                  to={`/card-ditails/${d._id}`}
-                  className="btn border-[#c74d2f] hover:bg-[#c74d2f] hover:text-white active:scale-95 bg-orange-300 "
-                >
-                  See Details
-                </Link>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </>

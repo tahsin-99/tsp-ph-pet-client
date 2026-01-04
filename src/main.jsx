@@ -29,6 +29,9 @@ import About from "./Component/About.jsx";
 import Contact from "./Component/Contact.jsx";
 import AwarenessAndHeroes from "./Component/Heroes.jsx";
 import Heroes from "./Component/Heroes.jsx";
+import PrivacyPolicy from "./Component/PrivacyPolicy.jsx";
+import TermsAndConditions from "./Component/TermsAndConditions.jsx";
+import Profile from "./Component/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,12 +43,12 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("https://pet-supply-server.vercel.app/latest-post"),
+        loader: () => fetch("https://pet-server-sable.vercel.app/latest-post"),
       },
       {
         path: "/petsandsupplies",
         Component: PetsAndSupplies,
-        loader: () => fetch("https://pet-supply-server.vercel.app/petsupplies"),
+        loader: () => fetch("https://pet-server-sable.vercel.app/petsupplies"),
       },
       {
         path: "/about",
@@ -102,28 +105,39 @@ const router = createBrowserRouter([
       {
         path: "/pets",
         Component: Pets,
-        loader: () => fetch("https://pet-supply-server.vercel.app/pets"),
+        loader: () => fetch("https://pet-server-sable.vercel.app/pets"),
       },
       {
         path: "/petsfood",
         Component: PetFoods,
-        loader: () => fetch("https://pet-supply-server.vercel.app/petsfood"),
+        loader: () => fetch("https://pet-server-sable.vercel.app/petsfood"),
       },
       {
         path: "/petaccessories",
         Component: PetAccesories,
         loader: () =>
-          fetch("https://pet-supply-server.vercel.app/petsaccessories"),
+          fetch("https://pet-server-sable.vercel.app/petsaccessories"),
       },
       {
         path: "/petcare",
         Component: PetsCare,
-        loader: () =>
-          fetch("https://pet-supply-server.vercel.app/petsproducts"),
+        loader: () => fetch("https://pet-server-sable.vercel.app/petsproducts"),
       },
       {
         path: "/heroes",
         Component: Heroes,
+      },
+      {
+        path: "/privacy",
+        Component: PrivacyPolicy,
+      },
+      {
+        path: "/terms",
+        Component: TermsAndConditions,
+      },
+      {
+        path: "/my-profile",
+        Component: Profile,
       },
     ],
   },

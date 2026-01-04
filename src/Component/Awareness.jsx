@@ -2,7 +2,7 @@ import React from 'react';
 
 const Awareness = () => {
     return (
-        <div className="text-center mb-16 border h-full p-10 flex flex-col justify-center rounded-xl bg-amber-200 dark:bg-amber-700 mt-10">
+        <div className="text-center mb-16 border h-150 p-10 flex flex-col justify-center rounded-xl bg-amber-200 dark:bg-amber-700 mt-80 mb-100">
         <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
           🐾 Why Adopt from PawMart?
         </h2>

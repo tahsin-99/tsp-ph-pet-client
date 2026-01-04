@@ -34,7 +34,7 @@ const AddListing = () => {
       date: e.target.date.value,
       email: e.target.email.value,
     };
-    fetch("http://localhost:3000/petsupplies", {
+    fetch("https://pet-server-sable.vercel.app/petsupplies", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const AddListing = () => {
 
       <p
         className="text-4xl font-bold text-center mt-20 mb-10
-        text-gray-800 dark:text-gray-100"
+        text-gray-800 dark:text-gray-100 mt-50"
       >
         Add Your Pet & Supplies
       </p>

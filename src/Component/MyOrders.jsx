@@ -10,7 +10,7 @@ const MyOrders = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
+    fetch(`https://pet-server-sable.vercel.app/my-orders?email=${user.email}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -59,7 +59,7 @@ const MyOrders = () => {
   return (
     <>
       <title>PawMart | MyOrder</title>
-      <div className="p-5 bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <div className="p-5 bg-gray-50 dark:bg-gray-900 min-h-screen mt-50">
         <h1 className="text-3xl font-bold mb-5 text-gray-800 dark:text-gray-100">
           My Orders
         </h1>

@@ -11,7 +11,7 @@ const Update = () => {
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:3000/petsupplies/${id}`, {
+    fetch(`https://pet-server-sable.vercel.app/petsupplies/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -36,7 +36,7 @@ const Update = () => {
       date: e.target.date.value,
       email: e.target.email.value,
     };
-    fetch(`http://localhost:3000/petsupplies/${data._id}`, {
+    fetch(`https://pet-server-sable.vercel.app/petsupplies/${data._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

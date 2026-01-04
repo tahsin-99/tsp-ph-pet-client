@@ -24,14 +24,15 @@ const Footer = () => {
             <div className='space-y-4' >
          <h3  className='font-semibold text-black'>Services</h3>
        <Link to='/petsandsupplies' className='text-gray-300'>Products & Services</Link><br />
-        <Link to='/awareness' className='text-gray-300'>Customer Stories</Link>
+        <Link to='/heroes' className='text-gray-300'>Customer Stories</Link>
         
             </div>
             <div className='space-y-4'>
         <h3  className='font-semibold text-black'>Information</h3>
-       <p className='text-gray-300'>Privacy Policy</p>
-        <p className='text-gray-300'>Terms & Condition</p>
-        <p className='text-gray-300'>Join Us </p>
+       <Link to='/privacy' className='text-gray-300'>Privacy Policy</Link>
+       <br />
+        <Link to='/terms' className='text-gray-300'>Terms & Condition</Link>
+        
             </div>
             <div className='space-y-2 text-black'>
             <h3 className='font-semibold text-white'>Social Links</h3>

@@ -2,6 +2,11 @@ import React from "react";
 import Banner from "./Banner";
 import { Link, useLoaderData } from "react-router";
 import AwarenessAndHeroes from "./Heroes";
+import Awareness from "./Awareness";
+import Heroes from "./Heroes";
+import Statistics from "./Statistics";
+import CTA from "./CTA";
+import FAQ from "./Faq";
 
 const Home = () => {
   const data = useLoaderData();
@@ -9,7 +14,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="text-4xl font-bold text-center mt-70">Recent Items</div>
+      <div className="text-4xl  font-bold text-center mt-70">Recent Items</div>
       <div className="flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-10 gap-20 p-5 ">
           {data.map((d) => (
@@ -39,7 +44,11 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <AwarenessAndHeroes></AwarenessAndHeroes>
+      <Awareness></Awareness>
+      <Statistics></Statistics>
+      <CTA></CTA>
+      <FAQ></FAQ>
+      <Heroes></Heroes>
     </div>
   );
 };

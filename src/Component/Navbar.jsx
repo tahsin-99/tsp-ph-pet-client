@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const links = (
     <>
-      <div className="flex flex-col lg:flex-row  text-[20px]  gap-5 font-semibold ">
+      <div className="flex flex-col lg:flex-row  text-[20px]  gap-5 font-semibold  ">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/petsandsupplies">Pet & Supplies</NavLink>
         <NavLink to="/about">About</NavLink>
@@ -54,7 +54,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-[#FFE9D2] sm:ml-4 lg:w-full  lg:ml-0   border-b border-[#BB86FC]/40 shadow-sm  text-black   mt-10 ">
+    <div className="navbar fixed top-0 left-0 z-50 bg-[#FFE9D2] sm:ml-4 lg:w-full  lg:ml-0   border-b border-[#BB86FC]/40 shadow-sm  text-black    ">
       <div className="navbar-start ">
         <div className="dropdown  ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
@@ -97,29 +97,63 @@ const Navbar = () => {
            className="toggle"/>
         </div>
       <div className="navbar-end">
-       {
-        user&&(
-          <div>
+      {user && (
+  <div className="dropdown dropdown-end mr-5">
+    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+      <div className="w-12 rounded-full ring ring-orange-400 ring-offset-base-100 ring-offset-2">
+        <img
+          src={
+            user?.photoURL && user.photoURL.startsWith("http")
+              ? user.photoURL
+              : userlogo
+          }
+          alt="User Avatar"
+        />
+      </div>
+    </label>
 
-             <Link to="/my-profile">
-          <img className="w-[45px] rounded-full mr-5"
-            src={
-              user?.photoURL &&
-              typeof user.photoURL &&
-              user.photoURL.startsWith("http")
-                ? user.photoURL
-                : userlogo
-            }
-            alt="User Avatar"
-            
-          />
+    <ul
+      tabIndex={0}
+      className="menu menu-sm dropdown-content mt-3 p-3 shadow-lg bg-base-100 text-base-content rounded-xl w-48"
+    >
+     
+      <li>
+        <Link
+          to="/my-profile"
+          className="flex items-center gap-3 rounded-lg 
+          bg-orange-200 dark:bg-orange-900/40 
+          text-orange-700 dark:text-orange-500
+          hover:bg-orange-300 dark:hover:bg-orange-900 transition"
+        >
+          <span className="text-lg">👤</span>
+          Profile
         </Link>
-          </div>
-        )
-       }
+      </li>
+
+      {/* Divider */}
+      <div className="divider my-1"></div>
+
+      {/* Logout */}
+      <li>
+        <button
+          onClick={handleLogOut}
+          className="flex items-center gap-3 rounded-lg 
+          bg-red-100 dark:bg-red-900/40 
+          text-red-700 dark:text-red-400
+          hover:bg-red-200 dark:hover:bg-red-900 transition"
+        >
+          <span className="text-lg">🚪</span>
+          Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+)}
+
 
         <div className="flex flex-col sm:flex-row gap-4 ">
-          <div>
+          {
+            user ? null:<div>
             <Link
               className="btn hover:bg-pink-700 hover:text-white border-[#c74d2f] w-[140px]"
               to="/register"
@@ -127,16 +161,9 @@ const Navbar = () => {
               Register
             </Link>
           </div>
+          }
           <div>
-            {user ? (
-              <button
-                onClick={handleLogOut}
-                className="btn bg-[#f97f2d] text-black hover:bg-red-600 hover:text-white  w-[140px]"
-                to="/login"
-              >
-                LogOut
-              </button>
-            ) : (
+            {user ? null: (
               <Link
                 className="btn bg-[#c74d2f] text-white hover:bg-emerald-600  w-[140px]"
                 to="/login"
