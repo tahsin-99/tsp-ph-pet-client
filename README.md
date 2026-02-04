@@ -9,13 +9,46 @@
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <table>
+    <tr>
+      <td>
+        <img src="https://github.com/tahsin-99/tsp-ph-pet-client/blob/c055ff0c17ee218b31262b551b8d68ef78e332f1/pet1.png" alt="Home Page" width="380" />
+      </td>
+      <td>
+        <img src="https://github.com/tahsin-99/tsp-ph-pet-client/blob/c055ff0c17ee218b31262b551b8d68ef78e332f1/pet2.png" alt="Pet Listing" width="380" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://github.com/tahsin-99/tsp-ph-pet-client/blob/c055ff0c17ee218b31262b551b8d68ef78e332f1/pet3.png" alt="Pet Details" width="380" />
+      </td>
+      <td>
+        <img src="https://github.com/tahsin-99/tsp-ph-pet-client/blob/c055ff0c17ee218b31262b551b8d68ef78e332f1/pet4.png" alt="Shopping Page" width="380" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://github.com/tahsin-99/tsp-ph-pet-client/blob/c055ff0c17ee218b31262b551b8d68ef78e332f1/pet5.png" alt="Product Details" width="380" />
+      </td>
+      <td>
+        <img src="https://github.com/tahsin-99/tsp-ph-pet-client/blob/c055ff0c17ee218b31262b551b8d68ef78e332f1/pet6.png" alt="Mobile View" width="380" />
+      </td>
+    </tr>
+  </table>
+</p>
+
+---
+
 ## ✨ Features
 
-- 🐶 Adopt pets **free of cost**
-- 🍖 Purchase pet food
-- 🦴 Buy pet accessories
-- 🧴 Shop pet care products
-- 🚚 Nationwide delivery for pets and products
+- 🐶 Adopt pets **free of cost**  
+- 🍖 Purchase pet food  
+- 🦴 Buy pet accessories  
+- 🧴 Shop pet care products  
+- 🚚 Nationwide delivery for pets and products  
 
 ---
 
