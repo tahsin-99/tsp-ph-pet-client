@@ -1,6 +1,6 @@
 # 🐾 PawMart
 
-**PawMart** is an online pet care platform where users can adopt pets and purchase essential products for their pets from one place.
+**PawMart** is an online pet care platform that allows users to adopt pets and purchase essential pet products from one convenient place.
 
 ---
 
@@ -10,24 +10,42 @@
 ---
 
 ## ✨ Features
-- 🐶 Adopt pets **free of cost**  
-- 🍖 Buy food for pets  
-- 🦴 Purchase accessories for pets  
-- 🧴 Buy care products for pets  
-- 🚚 Pets and products can be delivered **nationwide**  
+
+- 🐶 Adopt pets **free of cost**
+- 🍖 Purchase pet food
+- 🦴 Buy pet accessories
+- 🧴 Shop pet care products
+- 🚚 Nationwide delivery for pets and products
 
 ---
 
 ## 🎯 Purpose
-The purpose of PawMart is to make pet adoption and pet care easier by providing a single platform for adoption and shopping.
+
+The goal of **PawMart** is to simplify pet adoption and pet care by providing a single platform for adoption and shopping.
 
 ---
 
 ## 🚀 Setup Instructions
+
+### 1️⃣ Navigate to Project Directory
 ```bash
-cd AssetVerse
+cd PawMart
+```
+
+### 2️⃣ Install Dependencies
+```bash
 npm install
+```
+
+### 3️⃣ Run the Development Server
+```bash
 npm run dev
+```
+
+---
 
 ## 👤 Author
-**Tahsin Sikder**
+
+**Tahsin Sikder**  
+🔗 LinkedIn: https://www.linkedin.com/in/tahsin-sikder99/  
+🌐 Portfolio: https://tahsin-web.netlify.app/
